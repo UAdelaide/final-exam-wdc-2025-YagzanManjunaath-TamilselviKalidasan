@@ -116,14 +116,13 @@ let db;
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (user_rows[0].count === 0) {
             await Promise.all(insert_user_queries.map((query) => db.execute(query)));
+            const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+            if (dog_rows[0].count === 0) {
+                await Promise.all(insert_user_queries.map((query) => db.execute(query)));
+            }
         }
         // Insert Dogs
-        const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-        if (dog_rows[0].count === 0) {
-            await db.execute(`
 
-                `);
-        }
 
         // Insert WalkRequests
         const [walkRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
