@@ -11,7 +11,7 @@ INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@ex
 
 
 INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
-(SELECT Users.user_id from Users where )
+(SELECT Users.user_id from Users where Users.username  = 'alice123')
 );
 Five dogs:
 A dog named Max, who is medium-sized and owned by alice123.
