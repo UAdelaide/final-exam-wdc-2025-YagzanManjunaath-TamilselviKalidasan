@@ -87,8 +87,9 @@
                 async fetchListOfRandomDog(text) {
                     try {
                         const dataList = await fetch('https://dog.ceo/api/breeds/image/random/50').then((response) => response.json());
-                        this.dogList = data.message;
                         console.log(dataList);
+                        this.dogList = dataList.message;
+
 
                     } catch (err) {
                         console.log("Error fetching random dog image");
