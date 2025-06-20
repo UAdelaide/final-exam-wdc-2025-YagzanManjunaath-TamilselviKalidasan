@@ -95,7 +95,8 @@
                     try {
                         const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
                          dogOfDay.image = data.message;
-                        let breedName = data.message.split('/')
+                        let urlSplit = data.message.split('/')
+                        let fileName = urlSplit.l
 
                          dogOfDay.name = data.message.
                          this.dogOfDay = dogOfDay;
