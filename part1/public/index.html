@@ -63,7 +63,7 @@
                 <img :src="dog" alt="" />
                 <p>Dog {{dog}}</p>
             </div>
-            <button class="load-more">Load more</button>
+            <button class="load-more" @click="dogDisplayCount= dogDisplayCount+1;">Load more</button>
             <div class="dogOfDay">
                 <img :src="dogOfDay" alt="" />
                 <p> Dog of the Day</p>
