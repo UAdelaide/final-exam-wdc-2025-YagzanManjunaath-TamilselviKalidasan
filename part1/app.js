@@ -91,7 +91,7 @@ let db;
         for(const query of table_queries){
             await db.execute(query);
         }
-
+        await Promise.all(table_queries.map(query=>db.execute(query)));
         // Insert data if table is empty
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (user_rows[0].count === 0) {
