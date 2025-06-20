@@ -6,10 +6,7 @@ var mysql = require('mysql2/promise');
 
 var app = express();
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
 
 let db;
 
@@ -197,10 +194,14 @@ let db;
     }
 })();
 
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
 // Routes
 const apiRoutes = require('./routes/api');
-
-
 app.use('/api/', apiRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
