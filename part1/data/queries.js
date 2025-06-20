@@ -18,9 +18,9 @@ const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, w
 }
  */
 
-const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(w_rating.ratings_id) as total_ratings,
+const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(w_rating.rating_id) as total_ratings,
                                     AVG(w_rating.rating) as average_rating,
-                                    (SELECT COUNT(wr_inner.ratings_id) from WalkRatings wr_inner
+                                    (SELECT COUNT(wr_inner.rating_id) from WalkRatings wr_inner
                                             where wr_inner.walker_id = w_rating.walker_id and wr_inner.status = 'completed')
                                      as completed_walks
                                 from WalkRatings w_rating
