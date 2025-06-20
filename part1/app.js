@@ -197,7 +197,7 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          4,
-                         'Krypto was');
+                         'Krypto was hurt during the walk');
 
                 `);
         }
