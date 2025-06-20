@@ -41,8 +41,9 @@ const fetch_walker_summary = `
                             w_rating_inner.walker_id = w_rating.walker_id
                             and w_req.status = 'completed'
                     ) as completed_walks
-                from
-                    WalkRatings w_rating
+                from Users u
+
+                WalkRatings w_rating
                     inner join Users u on u.user_id = w_rating.walker_id
                 where
                     u.role = 'walker'
