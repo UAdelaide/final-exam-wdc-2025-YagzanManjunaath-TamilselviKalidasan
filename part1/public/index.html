@@ -95,7 +95,7 @@
                     try {
                         const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
                          dogOfDay.image = data.message;
-                         dogOfDay.name = 
+                         dogOfDay.name = data.message.su
                          this.dogOfDay = dogOfDay;
                     } catch (err) {
                         console.log("Error fetching random dog image");
