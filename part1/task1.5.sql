@@ -10,7 +10,8 @@ INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayn
 INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
 
 
-INSERT INTO Dogs(name,size,owner_id) values ('alfred','alfred@example.com','thomas123','walker');
+INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
+);
 Five dogs:
 A dog named Max, who is medium-sized and owned by alice123.
 A dog named Bella, who is small and owned by carol123.
