@@ -18,9 +18,12 @@
             ,
             methods: {
                 async fetchRandomDog(text) {
+                    try{
                     const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
                     this.dogOfDay = data.message;
-                    
+                    }catch(err){
+                        console.log("Error fetching ")
+                    }
                 }
             }
         }
