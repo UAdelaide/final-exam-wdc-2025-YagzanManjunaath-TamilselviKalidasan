@@ -95,7 +95,7 @@ router.get('/walkers/summary', async function (req, res, next) {
 
         /*
             Fetch summary of completed walks using query from queries.js
-const fetch_walker_summary = `
+            const fetch_walker_summary = `
                 SELECT
                     u.username as walker_username,
                     COUNT(DISTINCT w_rating.rating_id) as total_ratings,
