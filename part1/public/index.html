@@ -19,8 +19,8 @@
             methods: {
                 async fetchRandomDog(text) {
                     const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
-                    this.searchResults = data;
-                    console.log(data);
+                    this.dogOfDay = data.message;
+                    
                 }
             }
         }
