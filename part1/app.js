@@ -96,23 +96,19 @@ let db;
             `INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
                     );`,
-
             `INSERT INTO Dogs(name,size,owner_id) values ('Bella','small',
                         (SELECT Users.user_id from Users where Users.username  = 'carol123' LIMIT 1)
                     );`,
-
             `INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
                     );`,
-
             `INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
                     );`,
-
             `INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
                     );`
-        ]
+        ];
 
         /* Create Tables */
         await Promise.all(table_queries.map((query) => db.execute(query)));
