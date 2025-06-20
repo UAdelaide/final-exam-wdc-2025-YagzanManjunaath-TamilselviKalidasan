@@ -43,6 +43,7 @@ const fetch_walker_summary = `
                 from
                     WalkRatings w_rating
                     inner join Users u on u.user_id = w_rating.walker_id
+                where u.role = 'walker'
                 group by
                     w_rating.walker_id;`;
 module.exports = {
