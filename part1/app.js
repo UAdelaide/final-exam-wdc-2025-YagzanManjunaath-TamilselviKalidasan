@@ -159,7 +159,7 @@ let db;
                 INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments, rated_at)
                         VALUES(
-                        (SELECT WalkRequests.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
+                        (SELECT WalkRequests.request_id from WalkRequests where WalkRequests.dog_id  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
                         , 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
 
                 `);
