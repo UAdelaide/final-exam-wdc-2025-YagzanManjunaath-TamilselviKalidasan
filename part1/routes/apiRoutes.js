@@ -44,8 +44,6 @@ router.get('/dogs', async function (req, res, next) {
     }
 });
 
-//
-
 
 /* GET all open walk requests information */
 router.get('/walkrequests/open', async function (req, res, next) {
