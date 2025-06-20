@@ -156,6 +156,9 @@ let db;
         const [wallRatings_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
         if (walkRequest_rows[0].count === 0) {
             await db.execute(`
+                INSERT INTO DogWalkService.WalkRatings
+                        ( request_id, walker_id, owner_id, rating, comments, rated_at)
+                        VALUES(0, 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
                     INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
                     );
