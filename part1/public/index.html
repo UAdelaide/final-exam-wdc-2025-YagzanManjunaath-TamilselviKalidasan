@@ -50,6 +50,7 @@
     <div id="app">
         <div class="clearfix">
             <p class="title">Dog Walk Service</p>
+            <button class="load-more" @click="dogDisplayCount= dogDisplayCount+1;">Load more Random Dogs</button>
             <p class="hero-text">This section gives information about the webpage.This is a large text content that has
                 no
                 significance to the webpage. This web page can be used to randomly fetch a dog's image
@@ -63,7 +64,7 @@
                 <img :src="dog" alt="" />
                 <p>Dog {{dog}}</p>
             </div>
-            <button class="load-more" @click="dogDisplayCount= dogDisplayCount+1;">Load more</button>
+
             <div class="dogOfDay">
                 <img :src="dogOfDay" alt="" />
                 <p> Dog of the Day</p>
