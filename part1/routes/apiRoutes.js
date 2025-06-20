@@ -76,6 +76,8 @@ router.get('/walkrequests/open', async function (req, res, next) {
     }
 });
 
-/* GET Sumamry of Completed walks walk requests information */
+/* GET Sumamry of each walker -  ratings and count of completed walks walk requests information */
+
+
 
 module.exports = router;
