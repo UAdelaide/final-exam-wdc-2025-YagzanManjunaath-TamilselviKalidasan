@@ -176,7 +176,18 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          2,
-                         'He left Ace shouting');
+                         'He left Ace hungry');
+
+                INSERT INTO DogWalkService.WalkRatings
+                        ( request_id, walker_id, owner_id, rating, comments)
+                        VALUES(
+                        (SELECT w_req.request_id from WalkRequests w_req
+                        inner join Dogs d on w_req.dog_id = d.dog_id
+                        where d.name  = 'Ace' LIMIT 1),
+                         (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
+                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
+                         2,
+                         'He left Ace hungry');
 
                 `);
         }
