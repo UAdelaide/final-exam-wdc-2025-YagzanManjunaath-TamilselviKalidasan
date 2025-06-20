@@ -167,6 +167,17 @@ let db;
                          4,
                          'Good job,Bob');
 
+                INSERT INTO DogWalkService.WalkRatings
+                        ( request_id, walker_id, owner_id, rating, comments)
+                        VALUES(
+                        (SELECT w_req.request_id from WalkRequests w_req
+                        inner join Dogs d on w_req.dog_id = d.dog_id
+                        where d.name  = 'Max' LIMIT 1),
+                         (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
+                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1),
+                         4,
+                         'Good job,Bob');
+
                 `);
         }
 
