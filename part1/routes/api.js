@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const { query } = require('./data/queries');
-const {} = require('./data/mysql_confi')
+const { query } = require('./data/mysql_config');
+const {fetch_dogs_and_owner_name} = require('./data/queries');
 
 /* GET All Dogs information */
 router.get('/dogs', function (req, res, next) {
