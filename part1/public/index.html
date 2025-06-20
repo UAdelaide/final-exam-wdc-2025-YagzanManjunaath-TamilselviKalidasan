@@ -37,6 +37,10 @@
             flex-direction: column;
             flex-basis: 1;
         }
+        .load-more{
+            color:paleturquoise;
+            background-color: aqua;
+        }
     </style>
 
 </head>
@@ -58,7 +62,7 @@
                 <img :src="dog" alt="" />
                 <p>Dog {{dog}}</p>
             </div>
-            <button >Load more</button>
+            <button class="load-more">Load more</button>
             <div class="dogOfDay">
                 <img :src="dogOfDay" alt="" />
                 <p> Dog of the Day</p>
