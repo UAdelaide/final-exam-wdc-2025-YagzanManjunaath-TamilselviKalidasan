@@ -152,8 +152,8 @@ let db;
                 `);
         }
 
-        // Insert WalkReatings
-        const [wallRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+        // Insert WalkRatings
+        const [wallRatings_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
         if (walkRequest_rows[0].count === 0) {
             await db.execute(`
                     INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
