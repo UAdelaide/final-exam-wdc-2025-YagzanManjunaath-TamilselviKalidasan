@@ -13,7 +13,7 @@ const fetch_dogs_and_owner_name = `SELECT d.name as dog_name, d.size as size, u.
 */
 const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, w_req.requested_time, w_req.duration_minutes,
                                     w_req.location,u.username as owner_username from w_req
-                                    
+                                    inner join Dogs d on wd.dog_id
                                     inner join Users u on d.owner_id = u.user_id;
                                     ;`;
 module.exports = {
