@@ -131,7 +131,7 @@ let db;
                     );`
         ];
         const insert_walk_ratings = [
-            INSERT INTO DogWalkService.WalkRatings
+            `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -140,9 +140,9 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1),
                          4,
-                         'Good job,Bob');
+                         'Good job,Bob');`,
 
-                INSERT INTO DogWalkService.WalkRatings
+                `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -151,9 +151,9 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          2,
-                         'He left Ace hungry');
+                         'He left Ace hungry');`,
 
-                INSERT INTO DogWalkService.WalkRatings
+                `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -162,8 +162,8 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          5,
-                         'Alfred, you are the best');
-                                INSERT INTO DogWalkService.WalkRatings
+                         'Alfred, you are the best');`,
+                                `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
