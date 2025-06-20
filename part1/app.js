@@ -212,8 +212,6 @@ let db;
         (SELECT Users.user_id from Users where Users.username = 'batman' LIMIT 1),
         5,
             'Alfred, you are the best'); `,
-       `
-
         ];
         /* Create Tables */
         await Promise.all(table_queries.map((query) => db.execute(query)));
