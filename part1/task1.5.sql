@@ -15,4 +15,5 @@ Three more walk requests with details of your choosing.
 INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
 INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed123','walker');
 INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed123','owner');
-INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','bat','owner');
+INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
+INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','martha123','owner');
