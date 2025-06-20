@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
   try{
 
   }catch(err){
-    con
+    const error_message = 'Error occurred during request
+    console.err()
   }
 });
 
