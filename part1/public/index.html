@@ -17,8 +17,8 @@
             }
             ,
             methods: {
-                async search(text) {
-                    const data = await fetch('/items?q=' + text).then((response) => response.json());
+                async fetchRandomDog(text) {
+                    const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
                     this.searchResults = data;
                     console.log(data);
                 }
