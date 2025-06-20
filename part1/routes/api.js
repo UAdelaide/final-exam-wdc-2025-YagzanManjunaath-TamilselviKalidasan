@@ -7,8 +7,9 @@ const {fetch_dogs_and_owner_name} = require('./data/queries');
 router.get('/dogs', async function (req, res, next) {
     try {
 
-        let dogs_with_owner_name_list = await query(fetch_dogs_and_owner_name);
-        
+        let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
+        if(dogs_with_owner_name_result && dogs_with_owner_name_result.l)
+
 
 
     } catch (err) {
