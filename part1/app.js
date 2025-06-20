@@ -127,6 +127,10 @@ let db;
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
                     );`
         ];
+
+        const 
+
+
         const insert_walk_ratings_queries = [
             `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
