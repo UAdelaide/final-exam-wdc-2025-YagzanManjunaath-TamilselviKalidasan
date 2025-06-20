@@ -131,7 +131,13 @@ let db;
         const inser_walk_applications = [
             `INSERT INTO DogWalkService.WalkApplications
                         (request_id, walker_id, applied_at, status)
-                        VALUES(0, 0, 0, CURRENT_TIMESTAMP, 'pending');`
+                        VALUES(
+                            (SELECT w_req.request_id from WalkRequests w_req
+                            inner join Dogs d on w_req.dog_id = d.dog_id
+                            where d.name  = 'Max' LIMIT 1),
+                            (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
+                            
+                        );`
         ]
 
 
