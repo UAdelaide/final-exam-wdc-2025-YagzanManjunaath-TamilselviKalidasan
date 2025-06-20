@@ -86,9 +86,7 @@ let db;
 
         ];
         // Create a table if it doesn't exist
-        await db.execute(
-
-        );
+        table_queries.map(query->{await db.execute(query)};
 
         // Insert data if table is empty
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
