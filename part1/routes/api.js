@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const { query } = require('./data/queries');
+const 
 
-/* GET Dog listing. */
+/* GET All Dogs information */
 router.get('/dogs', function (req, res, next) {
     try {
 
