@@ -86,7 +86,7 @@ let db;
 
         ];
         // Create a table if it doesn't exist
-        table_queries.forEach(query->{await db.execute(query)});;
+        table_queries.forEach();query->{await db.execute(query)};
 
         // Insert data if table is empty
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
