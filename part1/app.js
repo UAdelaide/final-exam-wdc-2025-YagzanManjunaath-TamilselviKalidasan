@@ -128,8 +128,8 @@ let db;
         }
 
         // Insert WalkRequests
-        const [walRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
-        if (walRequest_rows[0].count === 0) {
+        const [walkRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+        if (walkRequest_rows[0].count === 0) {
             await db.execute(`
                     INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
@@ -152,9 +152,9 @@ let db;
                 `);
         }
 
-        // Insert WalkReviews
-        const [walRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
-        if (walRequest_rows[0].count === 0) {
+        // Insert WalkReatings
+        const [wallRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+        if (walkRequest_rows[0].count === 0) {
             await db.execute(`
                     INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
