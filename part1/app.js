@@ -194,8 +194,9 @@ let db;
     }
 })();
 
-
+// Middleware - Logger
 app.use(logger('dev'));
+// Middleware - Json parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
