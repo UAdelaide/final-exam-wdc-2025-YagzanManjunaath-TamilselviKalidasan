@@ -3,6 +3,7 @@ var router = express.Router();
 const { query } = require('../data/mysql_config');
 const {
     fetch_dogs_and_owner_name,
+    fetch_open_walk_requests
 
 } = require('../data/queries');
 
@@ -55,11 +56,11 @@ router.get('/walkrequests/open', async function (req, res, next) {
                             where w_req.status = 'open';`;
 
         */
-        let open_walk_request_result = await query(fetch_dogs_and_owner_name);
+        let open_walk_request_result = await query(fetch_open_walk_requests);
         /*
             If no open requests are in the database , return 204 No content with emnpty body
         */
-        if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
+        if (open_walk_request_result && open_walk_request_result.length === 0) {
             return res.status(204).send();
         }
         /*
