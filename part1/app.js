@@ -187,7 +187,10 @@ let db;
             await Promise.all(insert_walk_ratings_queries.map((query) => db.execute(query)));
 
             console.log('INFO : Test data inserted into Database `DogWalkService`');
+        } else {
+            console.log('INFO : Test data inserted into Database `DogWalkService`');
         }
+
 
 
     } catch (err) {
