@@ -130,7 +130,7 @@ let db;
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
                     );`
         ];
-        const insert_walk_ratings = [
+        const insert_walk_ratings_queries = [
             `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
@@ -142,7 +142,7 @@ let db;
                          4,
                          'Good job,Bob');`,
 
-                `INSERT INTO DogWalkService.WalkRatings
+            `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -153,7 +153,7 @@ let db;
                          2,
                          'He left Ace hungry');`,
 
-                `INSERT INTO DogWalkService.WalkRatings
+            `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -163,7 +163,7 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          5,
                          'Alfred, you are the best');`,
-                                `INSERT INTO DogWalkService.WalkRatings
+            `INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -172,7 +172,7 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          4,
-                         'Krypto was hurt during the walk');
+                         'Krypto was hurt during the walk');`
 
         ];
         /* Create Tables */
@@ -184,6 +184,9 @@ let db;
             /* Insert dogs  */
             await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
             /* Insert WalkRequests  */
+            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
+
+            /* Insert WalkRatings  */
             await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
 
 
