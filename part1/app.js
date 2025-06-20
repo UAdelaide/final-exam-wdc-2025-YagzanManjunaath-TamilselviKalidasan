@@ -88,7 +88,7 @@ let db;
             `INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');`,
             `INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');`,
             `INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');`,
-            `INSERT INTO Users(username,email,password_hash,role) values ('newwalker','alfred@example.com','thomas123','walker');`
+            `INSERT INTO Users(username,email,password_hash,role) values ('newwalker','newwalker@example.com','walker@123','walker');`
         ];
         const insert_dogs_queries = [
             `INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
@@ -117,7 +117,7 @@ let db;
                     );`,
 
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Krypto' LIMIT 1),'2025-06-12 10:30:00',30,'Metropolis','open'
+                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Krypto' LIMIT 1),'2025-06-12 10:30:00',30,'Metropolis','completed'
                     );`,
 
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
@@ -125,7 +125,7 @@ let db;
                     );`,
 
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
+                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','completed'
                     );`
         ];
 
