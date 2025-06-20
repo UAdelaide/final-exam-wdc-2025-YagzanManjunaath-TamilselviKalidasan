@@ -34,4 +34,7 @@ router.get('/dogs', async function (req, res, next) {
     }
 });
 
+// /api/walkrequests/open
+
+
 module.exports = router;
