@@ -188,7 +188,7 @@ let db;
 
             console.log('INFO : Test data inserted into Database `DogWalkService`');
         } else {
-            console.log('INFO : Test data inserted into Database `DogWalkService`');
+            console.log('INFO : Database `DogWalkService` ');
         }
 
 
