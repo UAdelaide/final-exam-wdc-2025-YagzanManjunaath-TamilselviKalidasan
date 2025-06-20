@@ -25,8 +25,6 @@ const fetch_open_walk_requests = `
                     w_req.status = 'open';
 `;
 
-
-
 const fetch_walker_summary = `
                 SELECT
                     u.username as walker_username,
