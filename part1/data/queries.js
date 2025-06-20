@@ -44,8 +44,7 @@ const fetch_walker_summary = `
                     WalkRatings w_rating
                     inner join Users u on u.user_id = w_rating.walker_id
                 where u.role = 'walker'
-                group by
-                    w_rating.walker_id;`;
+                group by w_rating.walker_id;`;
 module.exports = {
     fetch_dogs_and_owner_name,
     fetch_open_walk_requests,
