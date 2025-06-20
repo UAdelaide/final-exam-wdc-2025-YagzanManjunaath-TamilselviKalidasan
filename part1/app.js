@@ -91,8 +91,18 @@ let db;
     `);
 
         // Insert data if table is empty
-        const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-        if (rows[0].count === 0) {
+        const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (user_rows[0].count === 0) {
+            await db.execute(`
+        INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
+        INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
+        INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
+        INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
+        INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
+      `);
+
+      const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (user_rows[0].count === 0) {
             await db.execute(`
         INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
         INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
