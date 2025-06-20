@@ -80,7 +80,7 @@
             <div class="dogOfDay">
 
                 <p class="dogOfDay-title"> Dog of the Day</p>
-                <img :src="dogOfDay.image" alt="" />
+                <img :src="dogOfDay.image" alt="" @click=""/>
                 <p> Name {{dogOfDay.name}}</p>
                 <p> Type {{dogOfDay.breed}}</p>
             </div>
@@ -100,7 +100,7 @@
 
             },
             methods: {
-                async fetchRandomDog(text) {
+                async fetchRandomDog() {
                     try {
                         const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
 
@@ -119,7 +119,7 @@
                         console.log("Error fetching random dog image");
                     }
                 },
-                async fetchListOfRandomDog(text) {
+                async fetchListOfRandomDog() {
                     try {
                         const dataList = await fetch('https://dog.ceo/api/breeds/image/random/50').then((response) => response.json());
 
