@@ -92,19 +92,8 @@ let db;
             `INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');`,
             `INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');`
         ];
-
-        /* Create Tables */
-        await Promise.all(table_queries.map((query) => db.execute(query)));
-        /* Create Tables */
-        const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-        if (user_rows[0].count === 0) {
-            await Promise.all(user_insert_queries.map((query) => db.execute(query)));
-        }
-        // Insert Dogs
-        const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-        if (dog_rows[0].count === 0) {
-            await db.execute(`
-                    INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
+        const dogs_insert_queries =[
+            `INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
                     );
 
@@ -123,6 +112,20 @@ let db;
                     INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
                     );
+        ]
+
+        /* Create Tables */
+        await Promise.all(table_queries.map((query) => db.execute(query)));
+        /* Insert data if user table is empty */
+        const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (user_rows[0].count === 0) {
+            await Promise.all(user_insert_queries.map((query) => db.execute(query)));
+        }
+        // Insert Dogs
+        const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+        if (dog_rows[0].count === 0) {
+            await db.execute(`
+
                 `);
         }
 
