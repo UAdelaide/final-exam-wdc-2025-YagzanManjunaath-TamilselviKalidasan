@@ -188,11 +188,8 @@ let db;
 
             console.log('INFO : Test data inserted into Database `DogWalkService`');
         } else {
-            console.log('INFO : Database `DogWalkService` ');
+            console.log('INFO : Database `DogWalkService` has users. Skipping Test data insertion.');
         }
-
-
-
     } catch (err) {
         console.error('ERROR : Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
