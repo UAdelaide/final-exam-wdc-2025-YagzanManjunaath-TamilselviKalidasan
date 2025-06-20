@@ -128,7 +128,7 @@ let db;
                     );`
         ];
 
-        const inser_walk_applications_queries = [
+        const insert_walk_applications_queries = [
             `INSERT INTO DogWalkService.WalkApplications
                         (request_id, walker_id, applied_at, status)
                         VALUES(
@@ -227,8 +227,8 @@ let db;
             await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
             /* Insert WalkRequests  */
             await Promise.all(insert_walk_request_queries.map((query) => db.execute(query)));
-            /* Insert WalkRequests  */
-            inser_walk_applications_queries
+            /* Insert WalkApplications  */
+            await Promise.all(insert_walk_applications_queries.map((query) => db.execute(query)));
             /* Insert WalkRatings  */
             await Promise.all(insert_walk_ratings_queries.map((query) => db.execute(query)));
 
