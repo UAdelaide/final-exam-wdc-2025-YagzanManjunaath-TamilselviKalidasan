@@ -3,7 +3,8 @@ var router = express.Router();
 const { query } = require('../data/mysql_config');
 const {
     fetch_dogs_and_owner_name,
-    fetch_open_walk_requests
+    fetch_open_walk_requests,
+    fetch_walker_summary
 
 } = require('../data/queries');
 
@@ -74,5 +75,7 @@ router.get('/walkrequests/open', async function (req, res, next) {
         return res.status(500).json({ error: error_message });
     }
 });
+
+/* GET Sumamry of Completed walks walk requests information */
 
 module.exports = router;
