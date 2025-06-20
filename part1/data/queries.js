@@ -6,8 +6,7 @@ const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, w
                                     w_req.location,u.username as owner_username from WalkRequests w_req
                                     inner join Dogs d on w_req.dog_id = d.dog_id
                                     inner join Users u on d.owner_id = u.user_id
-                                    where 
-                                    ;`;
+                                    where w_req.status = 'open';`;
 module.exports = {
     fetch_dogs_and_owner_name,
     fetch_open_walk_requests
