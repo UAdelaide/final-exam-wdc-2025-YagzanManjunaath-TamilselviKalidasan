@@ -94,36 +94,36 @@ let db;
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (user_rows[0].count === 0) {
             await db.execute(`
-            INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
-            INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
-            INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
-            INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
-            INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
-      `);
+                INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
+                INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
+                INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
+                INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
+                INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
+              `);
 
         const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
         if (dog_rows[0].count === 0) {
                 await db.execute(`
-                INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
-                    (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
-                );
+                    INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
+                        (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
+                    );
 
-                INSERT INTO Dogs(name,size,owner_id) values ('Bella','small',
-                    (SELECT Users.user_id from Users where Users.username  = 'carol123' LIMIT 1)
-                );
+                    INSERT INTO Dogs(name,size,owner_id) values ('Bella','small',
+                        (SELECT Users.user_id from Users where Users.username  = 'carol123' LIMIT 1)
+                    );
 
-                INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
-                    (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
-                );
+                    INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
+                        (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
+                    );
 
-                INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
-                    (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
-                );
+                    INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
+                        (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
+                    );
 
-                INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
-                    (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
-                );
-      `);
+                    INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
+                        (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
+                    );
+                `);
             }
         }
     } catch (err) {
