@@ -109,13 +109,13 @@
                 <img :src="dog.image" alt="" />
                 <p class="dog-breed"> Kind {{dogOfDay.breed}}</p>
             </div>
-            <div class="popup" v-if="isModalVisible">
+        </div>
+          <div class="popup" v-if="isModalVisible">
                 <p>
                     Close this popup to load another random dog
                     <button @click="isModalVisible=!isModalVisible;"> x </button>
                 </p>
             </div>
-        </div>
     </div>
 
 
