@@ -29,7 +29,7 @@ const fetch_walker_summary = `
                 SELECT
                     u.username as walker_username,
                     COUNT(w_rating.rating_id) as total_ratings,
-                    CAST(AVG(w_rating.rating) AS DECIMAL(10,2))as average_rating,
+                    CAST(AVG(w_rating.rating) AS DECIMAL(10,1))as average_rating,
                     (
                         SELECT
                             COUNT(w_rating_inner.rating_id)
