@@ -21,7 +21,7 @@ const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, w
 const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(w_rating.rating_id) as total_ratings,
                                     AVG(w_rating.rating) as average_rating,
                                     (SELECT COUNT(w_rating_inner.rating_id) from WalkRatings w_rating_inner
-                                                inner join WalkRequests on
+                                                inner join WalkRequests w_req on w_rating_inner.
                                             where w_rating_inner.walker_id = w_rating.walker_id and w_rating_inner.status = 'completed')
                                      as completed_walks
                                 from WalkRatings w_rating
