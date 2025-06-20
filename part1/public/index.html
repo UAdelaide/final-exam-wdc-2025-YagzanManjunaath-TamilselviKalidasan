@@ -125,13 +125,13 @@
                         const dogList = [];
                         for (data of dataList.message) {
                             let dog = {};
-                            let urlSplit = data.message.split('/')
+                            let urlSplit = data.split('/')
                             let fileName = urlSplit[urlSplit.length - 1];
                             let breedName = urlSplit[urlSplit.length - 2];
 
                             dog.name = fileName.split('.')[0];
                             dog.breed = breedName;
-                            dog.image = data.message;
+                            dog.image = data;
 
 
                             dogList.push(dog);
