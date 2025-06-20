@@ -23,7 +23,7 @@ router.get('/dogs', async function (req, res, next) {
                 from
                     Dogs d
                     inner join Users u on d.owner_id = u.user_id
-                `
+                `;
         */
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
@@ -67,7 +67,7 @@ router.get('/walkrequests/open', async function (req, res, next) {
                             inner join Users u on d.owner_id = u.user_id
                         where
                             w_req.status = 'open';
-                `;
+                    `;
 
 
         */
