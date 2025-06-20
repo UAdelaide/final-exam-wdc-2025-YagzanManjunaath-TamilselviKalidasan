@@ -71,7 +71,7 @@
         </div>
 
         <div class="dogView"  @click="fetchRandomDog()">
-
+            <p class="dogOfDay-title"> List  of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
                 <img :src="dog.image" alt="" />
                 <p>Dog {{dog}}</p>
