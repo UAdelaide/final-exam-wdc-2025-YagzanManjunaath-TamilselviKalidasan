@@ -8,9 +8,11 @@ router.get('/dogs', async function (req, res, next) {
     try {
 
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
-        if (dogs_with_owner_name_result && dogs_with_owner_name_result.length == 0) {
-            res.status(204).send();
+        if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
+           re res.status(204).send();
         }
+
+
 
 
 
