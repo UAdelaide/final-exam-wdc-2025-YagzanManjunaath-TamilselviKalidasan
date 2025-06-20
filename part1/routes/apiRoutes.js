@@ -99,7 +99,7 @@ router.get('/walkers/summary', async function (req, res, next) {
             Fetch summary of completed walks using query from queries.js
                 const fetch_walker_summary =
                 `
-                    SELECT
+                SELECT
                     u.username as walker_username,
                     COUNT(w_rating.rating_id) as total_ratings,
                     CAST(AVG(w_rating.rating) AS DECIMAL(10,1))as average_rating,
@@ -118,7 +118,8 @@ router.get('/walkers/summary', async function (req, res, next) {
                     WalkRatings w_rating
                     inner join Users u on u.user_id = w_rating.walker_id
                 group by
-                    w_rating.walker_id;`
+                    w_rating.walker_id;
+                `;
 
         */
         let fetch_walker_summary_result = await query(fetch_walker_summary);
