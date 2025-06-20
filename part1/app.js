@@ -184,32 +184,13 @@ let db;
             /* Insert dogs  */
             await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
             /* Insert WalkRequests  */
-            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
+            await Promise.all(insert_walk_request_queries.map((query) => db.execute(query)));
 
             /* Insert WalkRatings  */
-            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
+            await Promise.all(insert_walk_ratings_queries.map((query) => db.execute(query)));
 
 
         }
-
-
-
-        // Insert WalkRequests
-        const [walkRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
-        if (walkRequest_rows[0].count === 0) {
-            await db.execute(`
-
-                `);
-        }
-
-
-        const [wallRatings_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
-        if (walkRequest_rows[0].count === 0) {
-            await db.execute(`
-
-                `);
-        }
-
 
     } catch (err) {
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
