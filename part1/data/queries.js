@@ -19,6 +19,7 @@ const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, w
  */
 
 const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(ratings_id) as total_ratings, AVG(rating) as average_rating
+(SELECT COUNT(*))
  .request_id, d.name as dog_name, w_req.requested_time,
 ;`;
 module.exports = {
