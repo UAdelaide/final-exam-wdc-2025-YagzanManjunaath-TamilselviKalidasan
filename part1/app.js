@@ -207,8 +207,6 @@ app.use(cookieParser());
 
 // Routes
 const apiRoutes = require('./routes/apiRoutes');
-const indexRoutes = require('./routes/index');
-app.use('/', indexRoutes);
 app.use('/api/', apiRoutes);
 
 
