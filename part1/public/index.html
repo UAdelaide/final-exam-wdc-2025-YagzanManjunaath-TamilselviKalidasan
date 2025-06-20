@@ -22,7 +22,7 @@
                     const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
                     this.dogOfDay = data.message;
                     }catch(err){
-                        console.log("Error fetching ")
+                        console.log("Error fetching random dog image");
                     }
                 }
             }
