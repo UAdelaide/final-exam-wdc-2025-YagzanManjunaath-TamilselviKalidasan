@@ -11,46 +11,12 @@
         const vueapp = Vue.createApp({
             data() {
                 return {
-                    choose: "Choose ...",
-                    special: SPECIALS[0],
-                    show_ad: true,
-                    dark_mode: false,
-                    top_menu: [{ title: 'Home', url: '/', submenus: [] },
-                    {
-                        title: 'About', url: '/about',
-                        submenus: [
-                            { title: 'Who we are', url: '/about#us' },
-                            { title: 'What we do', url: '/about#store' },
-                            { title: 'Our range', url: '/about#range' }
-                        ]
-                    },
-                    {
-                        title: 'Contact Us', url: '/contact',
-                        submenus: [
-                            { title: 'Information', url: '/contact#info' },
-                            { title: 'Returns', url: '/contact#return' },
-                            { title: 'Locate Us', url: '/contact#locate' }
-                        ]
-                    }
-                    ],
-                    top_menu_item: 0,
-                    top_menu_hover: false,
-                    c_text: "type your comment here",
-                    c_arr: [],
-                    s_arr: [{ name: 'Adelaide City', address: '45 Florabunda Lane, Adelaide, 5000', counter: 0, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/11_Gloddaeth_Street%2C_Llandudno_shop_front.jpg/320px-11_Gloddaeth_Street%2C_Llandudno_shop_front.jpg' },
-                    { name: 'Steelton South', address: '77 Weigall Avenue, Steelton, 5413', counter: 0, img: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Well-shop-front.jpg' },
-                    { name: 'Milton', address: '33 McGregor Street, Milton, 5880', counter: 0, img: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Greggs_store_front.JPG/320px-Greggs_store_front.JPG' }
-                    ],
-                    searchResults: [],
-                    searchTerm: ""
-
-
+                    choose: "Choose ..."
                 };
 
             }
             ,
             methods: {
-
                 async search(text) {
                     const data = await fetch('/items?q=' + text).then((response) => response.json());
                     this.searchResults = data;
