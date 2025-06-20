@@ -162,7 +162,10 @@ let db;
                         (SELECT w_req.request_id from WalkRequests w_req
                         inner join Dogs d on w_req.dog_id = d.dog_id
                         where d.name  = 'Max' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1)
+                         (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
+                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1),
+                         4,
+                         "
                         '2025-06-12 11:30:00',20,'Egmore grounds','open'
                         , 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
 
