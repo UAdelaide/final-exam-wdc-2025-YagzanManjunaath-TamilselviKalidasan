@@ -85,6 +85,8 @@ let db;
             );`
 
         ];
+        const user_insert_queries = [
+        ];
         // Create a table if it doesn't exist
         for(const query of table_queries){
             await db.execute(query);
