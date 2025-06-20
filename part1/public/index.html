@@ -6,46 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script defer>
 
-        const vueapp = Vue.createApp({
-            data() {
-                return {
-                    dogOfDay: "",
-                    dogList: [],
-                };
-
-            },
-            methods: {
-                async fetchRandomDog(text) {
-                    try {
-                        const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
-                        this.dogOfDay = data.message;
-                    } catch (err) {
-                        console.log("Error fetching random dog image");
-                    }
-                },
-                async fetchListOfRandomDog(text) {
-                    try {
-                        const data = await fetch('https://dog.ceo/api/breeds/image/random/50').then((response) => response.json());
-                        this.dogOfDay = data.message;
-                    } catch (err) {
-                        console.log("Error fetching random dog image");
-                    }
-                }
-
-            },
-            mounted() {
-
-                this.fetchRandomDog();
-                this.fetchListOfRandomDog();
-            }
-        }
-        );
-        const vueinst = vueapp.mount('#app')
-        window.vueinst = vueinst
-
-    </script>
     <style>
         * {
             box-sizing: border-box;
@@ -102,6 +63,48 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+
+        const vueapp = Vue.createApp({
+            data() {
+                return {
+                    dogOfDay: "",
+                    dogList: [],
+                };
+
+            },
+            methods: {
+                async fetchRandomDog(text) {
+                    try {
+                        const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
+                        this.dogOfDay = data.message;
+                    } catch (err) {
+                        console.log("Error fetching random dog image");
+                    }
+                },
+                async fetchListOfRandomDog(text) {
+                    try {
+                        const data = await fetch('https://dog.ceo/api/breeds/image/random/50').then((response) => response.json());
+                        this.dogOfDay = data.message;
+                    } catch (err) {
+                        console.log("Error fetching random dog image");
+                    }
+                }
+
+            },
+            mounted() {
+
+                this.fetchRandomDog();
+                this.fetchListOfRandomDog();
+            }
+        }
+        );
+        const vueinst = vueapp.mount('#app')
+        window.vueinst = vueinst
+
+    </script>
 </body>
 
 </html>
