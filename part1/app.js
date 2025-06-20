@@ -159,8 +159,8 @@ let db;
                 INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments, rated_at)
                         VALUES(
-                        (SELECT WalkRequests.request_id from WalkRequests
-                        inner join 
+                        (SELECT w_req.request_id from WalkRequests w_req
+                        inner join Dogs d on 
                         where WalkRequests.dog_id  =  LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
                         , 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
 
