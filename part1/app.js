@@ -86,21 +86,19 @@ let db;
 
         ];
         const user_insert_queries = [
+            `INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');`,
+                `INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');`
+                `INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
+                INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
+                INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');`
         ];
-        // Create a table if it doesn't exist
-        for(const query of table_queries){
-            await db.execute(query);
-        }
+
         await Promise.all(table_queries.map((query) => db.execute(query)));
         // Insert data if table is empty
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (user_rows[0].count === 0) {
             await db.execute(`
-                INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
-                INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
-                INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
-                INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
-                INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
+
             `);
         }
         // Insert Dogs
