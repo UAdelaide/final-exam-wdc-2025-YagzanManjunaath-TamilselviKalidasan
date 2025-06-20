@@ -40,8 +40,15 @@
             color: powderblue;
             float: right;
         }
-        .hero-text{
+
+        .hero-text {
             text-align: right;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 
@@ -50,8 +57,9 @@
 <body>
     <div id="app">
         <p class="title">Dog Walk Service</p>
-        <p class="hero-text">This section gives information about the webpage.This is a large text content that has no significance to the webpage. This web page can be used to randomly fetch a dog's image
-            You can scroll  up and down here. We try to deliver a good website.
+        <p class="hero-text clearfix">This section gives information about the webpage.This is a large text content that has no
+            significance to the webpage. This web page can be used to randomly fetch a dog's image
+            You can scroll up and down here. We try to deliver a good website.
         </p>
     </div>
 </body>
