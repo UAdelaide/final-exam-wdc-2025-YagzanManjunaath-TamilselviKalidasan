@@ -7,3 +7,5 @@ const pool = mysql.createPool({
     database: 'DogWalkService',
     connectionLimit: 10
 });
+
+const query = (sql,args)
