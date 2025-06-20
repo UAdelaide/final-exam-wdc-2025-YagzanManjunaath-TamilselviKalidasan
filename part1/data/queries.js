@@ -22,7 +22,10 @@ const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(rating
                                     AVG(rating) as average_rating,
                                     (SELECT COUNT(ratings_id) from WalkRatings wr_inner
                                             where wr_inner.walker_id = w_rating.walker_id and wr_inner.status = 'completed')
-                                     as completed_walks;`;
+                                     as completed_walks
+                                from WalkRatings 
+                                     group by walker
+                                     ;`;
 module.exports = {
     fetch_dogs_and_owner_name,
     fetch_open_walk_requests
