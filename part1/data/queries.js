@@ -29,5 +29,6 @@ const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(w_rati
                                      group by w_rating.walker_id;`;
 module.exports = {
     fetch_dogs_and_owner_name,
-    fetch_open_walk_requests
+    fetch_open_walk_requests,
+    fetch_walker_summary
 };
