@@ -23,7 +23,7 @@ router.get('/dogs', async function (req, res, next) {
             return res.status(204).send();
         }
         /*
-           If 
+           If found, return list as Json with status code 200
         */
         return res.status(200).json(dogs_with_owner_name_result);
 
