@@ -158,6 +158,16 @@ let db;
                             (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
                             '2025-06-11 18:30:00',
                             'accepted'
+                        );`,
+            `INSERT INTO DogWalkService.WalkApplications
+                        (request_id, walker_id, applied_at, status)
+                        VALUES(
+                            (SELECT w_req.request_id from WalkRequests w_req
+                            inner join Dogs d on w_req.dog_id = d.dog_id
+                            where d.name  = 'Ace' LIMIT 1),
+                            (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
+                            '2025-06-11 18:30:00',
+                            'accepted'
                         );`
         ];
 
