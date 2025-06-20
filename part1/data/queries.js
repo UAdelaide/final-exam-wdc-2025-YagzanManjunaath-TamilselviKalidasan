@@ -31,16 +31,6 @@ const fetch_walker_summary = `
                     COUNT(w_rating.rating_id) as total_ratings,
                     ROUND(AVG(w_rating.rating), 1) as average_rating,
                     COUNT (w_req.request_id) as completed_walks
-                    (
-                        SELECT
-                            COUNT(w_rating_inner.rating_id)
-                        from
-                            WalkRatings w_rating_inner
-                            inner join WalkRequests w_req on w_rating_inner.request_id = w_req.request_id
-                        where
-                            w_rating_inner.walker_id = w_rating.walker_id
-                            and w_req.status = 'completed'
-                    ) as completed_walks
                 from Users u
                         left join WalkRatings w_rating on u.user_id = w_rating.walker_id
                         left join WalkRequests w_req on u.user_id = w_req.walker_id
