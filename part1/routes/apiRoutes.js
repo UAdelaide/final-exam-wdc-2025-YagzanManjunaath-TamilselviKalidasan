@@ -92,7 +92,7 @@ router.get('/walkrequests/open', async function (req, res, next) {
 });
 
 /* GET Sumamry of each walker -  ratings and count of completed walks walk requests information */
-outer.get('/walkers/summary', async function (req, res, next) {
+router.get('/walkers/summary', async function (req, res, next) {
     try {
 
         /*
