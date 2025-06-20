@@ -14,17 +14,20 @@
                     dogOfDay: ""
                 };
 
-            }
-            ,
+            },
             methods: {
                 async fetchRandomDog(text) {
-                    try{
-                    const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
-                    this.dogOfDay = data.message;
-                    }catch(err){
+                    try {
+                        const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
+                        this.dogOfDay = data.message;
+                    } catch (err) {
                         console.log("Error fetching random dog image");
                     }
                 }
+            },
+            mounted() {
+
+                this.fetchDog()
             }
         }
         );
@@ -72,10 +75,8 @@
         </div>
 
         <div id="dogOfDay">
-            <img :src="dogOfDay"
-
+            <img :src="dogOfDay" </div>
         </div>
-    </div>
 </body>
 
 </html>
