@@ -14,7 +14,9 @@ const query = (sql,args) =>{
             if(err){
                 return reject(err);
             }
-            c
+            connection.query(sql,args,(err,result)=>{
+
+            })
         })
 
     })
