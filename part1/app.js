@@ -167,7 +167,7 @@ let db;
                         inner join Dogs d on w_req.dog_id = d.dog_id
                         where d.name  = 'Krypto' LIMIT 1),
                          (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
+                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1),
                          4,
                          'Krypto was hurt during the walk');`
 
