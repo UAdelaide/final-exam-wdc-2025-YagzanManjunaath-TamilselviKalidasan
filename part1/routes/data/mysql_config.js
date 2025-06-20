@@ -8,4 +8,6 @@ const pool = mysql.createPool({
     connectionLimit: 10
 });
 
-const query = (sql,args)
+const query = (sql,args) =>{
+    return new Promise((resolve,reject))
+}
