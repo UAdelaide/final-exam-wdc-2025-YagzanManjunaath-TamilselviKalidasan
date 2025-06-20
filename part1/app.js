@@ -197,15 +197,14 @@ let db;
     }
 })();
 
-// Route to return books as JSON
-app.get('/', async (req, res) => {
-    try {
-        const [books] = await db.execute('SELECT * FROM books');
-        res.json(books);
-    } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch books' });
-    }
-});
+// Routes
+const walkRoutes = require('./routes/api');
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/', walkRoutes);
+app.use('/api/', userRoutes);
+
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
