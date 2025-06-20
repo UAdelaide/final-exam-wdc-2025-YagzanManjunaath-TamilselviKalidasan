@@ -118,7 +118,7 @@ let db;
             await Promise.all(insert_user_queries.map((query) => db.execute(query)));
             /* Insert dogs  */
             await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
-            /* Insert WalkRequests if user and dogs table are empty */
+            /* Insert WalkRequests  */
             await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
 
 
@@ -130,16 +130,16 @@ let db;
         const [walkRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
         if (walkRequest_rows[0].count === 0) {
             await db.execute(`
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+                    `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
-                    );
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+                    );`,
+                    `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Bella' LIMIT 1),'2025-06-10 09:30:00',45,'Beachside Ave','accepted'
-                    );
+                    );`,
 
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+                    `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Krypto' LIMIT 1),'2025-06-12 10:30:00',30,'Metropolis','open'
-                    );
+                    );``
 
                     INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
