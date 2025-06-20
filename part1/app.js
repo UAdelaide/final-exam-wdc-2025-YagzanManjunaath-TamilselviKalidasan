@@ -144,7 +144,7 @@ let db;
                         VALUES(
                             (SELECT w_req.request_id from WalkRequests w_req
                             inner join Dogs d on w_req.dog_id = d.dog_id
-                            where d.name  = 'Max' LIMIT 1),
+                            where d.name  = 'Ace' LIMIT 1),
                             (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
                             '2025-06-10 10:00:00',
                             'accepted'
