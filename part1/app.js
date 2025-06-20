@@ -88,7 +88,7 @@ let db;
                 FOREIGN KEY (owner_id) REFERENCES Users(user_id),
                 CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
             );
-    `);
+         `);
 
         // Insert data if table is empty
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
@@ -99,7 +99,7 @@ let db;
                 INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
                 INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
                 INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
-              `);
+            `);
 
         const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
         if (dog_rows[0].count === 0) {
