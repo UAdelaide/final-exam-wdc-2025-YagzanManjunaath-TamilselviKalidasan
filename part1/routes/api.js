@@ -9,6 +9,10 @@ router.get('/dogs', async function (req, res, next) {
 
         /*
             Fetch Dogs from database using query from queries.js
+            const fetch_dogs_and_owner_name =
+            `
+            
+            `
         */
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
