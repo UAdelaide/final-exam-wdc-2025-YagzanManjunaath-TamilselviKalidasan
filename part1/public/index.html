@@ -27,7 +27,7 @@
                 },
                 async fetchListOfRandomDog(text) {
                     try {
-                        const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
+                        const data = await fetch('https://dog.ceo/api/breeds/image/random/50').then((response) => response.json());
                         this.dogOfDay = data.message;
                     } catch (err) {
                         console.log("Error fetching random dog image");
@@ -37,7 +37,8 @@
             },
             mounted() {
 
-                this.fetchRandomDog()
+                this.fetchRandomDog();
+                this.fetchListOfRandomDog();
             }
         }
         );
