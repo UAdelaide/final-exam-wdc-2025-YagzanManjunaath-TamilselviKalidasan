@@ -97,8 +97,8 @@
                 <p> Dog of the Day</p>
             </div>
             <div class="dogList" v-for="dog in dogList">
-                <img :src="dogOfDay" alt="" />
-                <p>Dog </p>
+                <img :src="dog" alt="" />
+                <p>Dog {{dog}}</p>
             </div>
         </div>
     </div>
