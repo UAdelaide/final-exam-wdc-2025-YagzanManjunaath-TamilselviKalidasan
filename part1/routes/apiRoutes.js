@@ -30,7 +30,7 @@ router.get('/dogs', async function (req, res, next) {
             If no dogs are in the database , return 204 No content with emnpty body
         */
         if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
-            return res.status(204).send();
+            return res.status(204).json([]);
         }
         /*
            If found, return list as Json with status code 200
