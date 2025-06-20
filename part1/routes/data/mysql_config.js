@@ -15,7 +15,10 @@ const query = (sql,args) =>{
                 return reject(err);
             }
             connection.query(sql,args,(err,result)=>{
-
+                connection.release();
+                if(err){
+                    r
+                }
             })
         })
 
