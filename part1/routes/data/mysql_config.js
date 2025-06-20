@@ -17,8 +17,9 @@ const query = (sql,args) =>{
             connection.query(sql,args,(err,result)=>{
                 connection.release();
                 if(err){
-                    r
+                    return reject(err);
                 }
+                return resolve(result);
             })
         })
 
