@@ -53,11 +53,13 @@
             font-size: xx-large;
             justify-content: center;
         }
-        .dog-name{
+
+        .dog-name {
             font-size: medium;
             justify-self: flex-start;
         }
-        .dog-breed{
+
+        .dog-breed {
             font-size: large;
             justify-self: flex-end;
         }
@@ -79,14 +81,16 @@
         <div class="dogOfDay">
 
             <p class="dogOfDay-title"> Dog of the Day</p>
-            <div></div>
-            <p class="dog-name"> Name {{dogOfDay.name}}</p>
-            <img :src="dogOfDay.image" alt="" />
-            <p class="dog-breed"> Type {{dogOfDay.breed}}</p>
+            <div class="dogView">
+                <p class="dog-name"> Name {{dogOfDay.name}}</p>
+                <img :src="dogOfDay.image" alt="" />
+                <p class="dog-breed"> Type {{dogOfDay.breed}}</p>
+            </div>
         </div>
 
-        <p class="hero-text">The below section would be populated with random dog images on pressing the load more dogs button.
-            </p>
+        <p class="hero-text">The below section would be populated with random dog images on pressing the load more dogs
+            button.
+        </p>
         <div class="dogView" @click="fetchRandomDog()">
             <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
