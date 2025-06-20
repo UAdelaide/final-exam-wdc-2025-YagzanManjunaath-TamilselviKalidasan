@@ -137,9 +137,9 @@ let db;
                             where d.name  = 'Max' LIMIT 1),
                             (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
                             '2025-06-10 10:00:00',
-                            'completed'
+                            'accepted'
                         );`,
-        ]
+        ];
 
 
         const insert_walk_ratings_queries = [
