@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   }catch(err){
     const error_message = `Error occurred during request ${err.message}`;
     console.err(error_message);
-    res.s
+    res.status(500).json({ error: 'Failed to fetch teams' });
   }
 });
 
