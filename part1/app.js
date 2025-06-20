@@ -94,10 +94,11 @@ let db;
         const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
         if (rows[0].count === 0) {
             await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
+        INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
+        INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
+        INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
+        INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');
+        INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
       `);
         }
     } catch (err) {
