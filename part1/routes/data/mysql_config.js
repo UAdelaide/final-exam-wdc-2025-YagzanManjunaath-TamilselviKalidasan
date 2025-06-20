@@ -21,7 +21,6 @@ const query = (sql, args) => new Promise((resolve, reject) => {
             return resolve(result);
         });
     });
-
 });
 
 module.exports = { query };
