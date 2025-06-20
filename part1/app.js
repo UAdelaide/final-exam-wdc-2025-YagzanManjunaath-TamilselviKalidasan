@@ -207,6 +207,7 @@ app.use(cookieParser());
 
 // Routes
 const apiRoutes = require('./routes/apiRoutes');
+const indexRoutes = require('./routes/index');
 app.use('/api/', apiRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
