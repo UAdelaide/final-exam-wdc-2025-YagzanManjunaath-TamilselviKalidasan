@@ -196,8 +196,9 @@ let db;
 
 // Middleware - Logger
 app.use(logger('dev'));
-// Middleware - Json parser
+// Middleware - Json parser for parsing Request body
 app.use(express.json());
+// Middleware - Json parser for parsing Request body
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
