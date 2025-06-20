@@ -121,17 +121,17 @@ outer.get('/walkers/summary', async function (req, res, next) {
                         w_rating.walker_id;`
 
         */
-        let open_walk_request_result = await query(fetch_walker_summary);
+        let fetch_walker_summary_result = await query(fetch_walker_summary);
         /*
             If no open requests are in the database , return 204 No content with emnpty body
         */
-        if (open_walk_request_result && open_walk_request_result.length === 0) {
+        if (fetch_walker_summary_result && fetch_walker_summary_result.length === 0) {
             return res.status(204).send();
         }
         /*
            If found, return list as Json with status code 200
         */
-        return res.status(200).json(open_walk_request_result);
+        return res.status(200).json(fetch_walker_summary_result);
 
     } catch (err) {
         const error_message = `Error occurred during fetch open walks request: ${err.message}`;
