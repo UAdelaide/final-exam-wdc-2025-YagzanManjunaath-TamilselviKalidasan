@@ -56,9 +56,9 @@ router.get('/walkrequests/open', async function (req, res, next) {
             `;
 
         */
-        let open_walk_request_ = await query(fetch_dogs_and_owner_name);
+        let open_walk_request_result = await query(fetch_dogs_and_owner_name);
         /*
-            If no dogs are in the database , return 204 No content with emnpty body
+            If no open requests are in the database , return 204 No content with emnpty body
         */
         if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
             return res.status(204).send();
