@@ -66,7 +66,7 @@ router.get('/walkrequests/open', async function (req, res, next) {
         /*
            If found, return list as Json with status code 200
         */
-        return res.status(200).json(dogs_with_owner_name_result);
+        return res.status(200).json(open_walk_request_result);
 
     } catch (err) {
         const error_message = `Error occurred during request ${err.message}`;
