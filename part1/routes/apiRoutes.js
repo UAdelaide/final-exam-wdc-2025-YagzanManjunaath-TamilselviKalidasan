@@ -75,7 +75,7 @@ router.get('/walkrequests/open', async function (req, res, next) {
             If no open requests are in the database , return 204 No content with emnpty body
         */
         if (open_walk_request_result && open_walk_request_result.length === 0) {
-            return res.status(204).send();
+            return res.status(204).json([]);
         }
         /*
            If found, return list as Json with status code 200
@@ -125,7 +125,7 @@ router.get('/walkers/summary', async function (req, res, next) {
             If no open requests are in the database , return 204 No content with emnpty body
         */
         if (fetch_walker_summary_result && fetch_walker_summary_result.length === 0) {
-            return res.status(204).send();
+            return res.status(204).json([]);
         }
         /*
            If found, return list as Json with status code 200
