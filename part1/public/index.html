@@ -80,7 +80,8 @@
             <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
                 <img :src="dog.image" alt="" />
-                <p>Dog {{dog}}</p>
+                <p> Name {{dogOfDay.name}}</p>
+                <p> Type {{dogOfDay.breed}}</p>
             </div>
 
         </div>
@@ -139,7 +140,7 @@
 
 
                     } catch (err) {
-                        console.log("Error fetching random dog image "+ err);
+                        console.log("Error fetching random dog image " + err);
                     }
                 },
 
