@@ -198,13 +198,10 @@ let db;
 })();
 
 // Routes
-const walkRoutes = require('./routes/api');
-const userRoutes = require('./routes/userRoutes');
-
-app.use('/api/', walkRoutes);
-app.use('/api/', userRoutes);
+const apiRoutes = require('./routes/api');
 
 
+app.use('/api/', apiRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
