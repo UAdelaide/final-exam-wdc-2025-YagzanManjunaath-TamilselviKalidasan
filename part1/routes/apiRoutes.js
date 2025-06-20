@@ -108,7 +108,8 @@ outer.get('/walkers/summary', async function (req, res, next) {
                                 COUNT(w_rating_inner.rating_id)
                             from
                                 WalkRatings w_rating_inner
-                                inner join WalkRequests w_req on w_rating_inner.request_id = w_req.request_id
+                                inner join WalkRequests w_req on
+                                    w_rating_inner.request_id = w_req.request_id
                             where
                                 w_rating_inner.walker_id = w_rating.walker_id
                                 and w_req.status = 'completed'
@@ -120,7 +121,7 @@ outer.get('/walkers/summary', async function (req, res, next) {
                         w_rating.walker_id;`
 
         */
-        let open_walk_request_result = await query(fetch_open_walk_requests);
+        let open_walk_request_result = await query(fetch_walker_summary);
         /*
             If no open requests are in the database , return 204 No content with emnpty body
         */
