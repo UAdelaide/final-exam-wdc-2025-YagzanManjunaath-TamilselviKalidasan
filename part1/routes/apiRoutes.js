@@ -115,7 +115,7 @@ router.get('/walkers/summary', async function (req, res, next) {
         */
         let fetch_walker_summary_result = await query(fetch_walker_summary);
         /*
-            If no open requests are in the database ,  return 200 wth empty array
+            If no walkers are in the database ,  return 200 wth empty array
         */
         if (fetch_walker_summary_result && fetch_walker_summary_result.length === 0) {
             return res.status(200).json([]);
