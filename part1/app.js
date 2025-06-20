@@ -124,12 +124,15 @@ let db;
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
                     );`,
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
+                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-12 18:30:00',45,'Wayne Manor grounds','open'
                     );`,
 
             `INSERT INTO WalkRequests(dog_id, requested_time, duration_minutes, location, status) values(
                 (SELECT Dogs.dog_id from Dogs where Dogs.name = 'Sugar' LIMIT 1), '2025-06-12 11:30:00', 20, 'Egmore grounds', 'completed'
-                    ); `
+                    ); `,
+            `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-12 18:30:00',45,'Wayne Manor grounds','open'
+                    );`,
         ];
 
         const insert_walk_applications_queries = [
