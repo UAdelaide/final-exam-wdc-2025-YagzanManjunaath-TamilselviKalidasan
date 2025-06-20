@@ -130,36 +130,8 @@ let db;
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
                     );`
         ];
-
-        /* Create Tables */
-        await Promise.all(table_queries.map((query) => db.execute(query)));
-        /* Insert data if user table is empty */
-        const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-        if (user_rows[0].count === 0) {
-            await Promise.all(insert_user_queries.map((query) => db.execute(query)));
-            /* Insert dogs  */
-            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
-            /* Insert WalkRequests  */
-            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
-
-
-        }
-
-
-
-        // Insert WalkRequests
-        const [walkRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
-        if (walkRequest_rows[0].count === 0) {
-            await db.execute(`
-
-                `);
-        }
-
-
-        const [wallRatings_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
-        if (walkRequest_rows[0].count === 0) {
-            await db.execute(`
-                INSERT INTO DogWalkService.WalkRatings
+        const insert_walk_ratings = [
+            INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments)
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
@@ -201,6 +173,36 @@ let db;
                          (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
                          4,
                          'Krypto was hurt during the walk');
+
+        ];
+        /* Create Tables */
+        await Promise.all(table_queries.map((query) => db.execute(query)));
+        /* Insert data if user table is empty */
+        const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (user_rows[0].count === 0) {
+            await Promise.all(insert_user_queries.map((query) => db.execute(query)));
+            /* Insert dogs  */
+            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
+            /* Insert WalkRequests  */
+            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
+
+
+        }
+
+
+
+        // Insert WalkRequests
+        const [walkRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+        if (walkRequest_rows[0].count === 0) {
+            await db.execute(`
+
+                `);
+        }
+
+
+        const [wallRatings_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
+        if (walkRequest_rows[0].count === 0) {
+            await db.execute(`
 
                 `);
         }
