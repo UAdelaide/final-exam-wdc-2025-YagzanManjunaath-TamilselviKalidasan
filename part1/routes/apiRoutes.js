@@ -133,7 +133,7 @@ router.get('/walkers/summary', async function (req, res, next) {
         return res.status(200).json(fetch_walker_summary_result);
 
     } catch (err) {
-        const error_message = `Error occurred during fetch open walks request: ${err.message}`;
+        const error_message = `Error occurred during fetch walkers summary request: ${err.message}`;
         console.error(`ERROR : ${error_message}`);
         return res.status(500).json({ error: error_message });
     }
