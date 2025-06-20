@@ -103,10 +103,10 @@
                 <img :src="dog.image" alt="" />
                 <p class="dog-breed"> Kind {{dogOfDay.breed}}</p>
             </div>
-            <div class="popup">
+            <div class="popup" v-if="isModalVisible">
                 <p>
                     Close this popup to load another random dog
-                    <button> x </button>
+                    <button > x </button>
                 </p>
             </div>
         </div>
@@ -120,7 +120,8 @@
                 return {
                     dogOfDay: {},
                     dogList: [],
-                    dogDisplayCount: 0
+                    dogDisplayCount: 0,
+                    isModalVisible:false
                 };
 
             },
