@@ -70,8 +70,8 @@
             </p>
         </div>
 
-        <div class="dogView"  @click="fetchRandomDog()">
-            <p class="dogOfDay-title"> List  of Random Dogs</p>
+        <div class="dogView" @click="fetchRandomDog()">
+            <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
                 <img :src="dog.image" alt="" />
                 <p>Dog {{dog}}</p>
@@ -80,7 +80,7 @@
             <div class="dogOfDay">
 
                 <p class="dogOfDay-title"> Dog of the Day</p>
-                <img :src="dogOfDay.image" alt=""/>
+                <img :src="dogOfDay.image" alt="" />
                 <p> Name {{dogOfDay.name}}</p>
                 <p> Type {{dogOfDay.breed}}</p>
             </div>
