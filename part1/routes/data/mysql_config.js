@@ -10,11 +10,11 @@ const pool = mysql.createPool({
 
 const query = (sql, args) => {
     return new Promise((resolve, reject) => {
-        pool.getConnection((err, connection) => {
+        pool.getConnection(function (err, connection){
             if (err) {
                 return reject(err);
             }
-            connection.query(sql, args, (err, result) => {
+            connection.query(sql, args,function (err, result){
                 connection.release();
                 if (err) {
                     return reject(err);
@@ -23,5 +23,5 @@ const query = (sql, args) => {
             });
         });
 
-    })
+    });
 }
