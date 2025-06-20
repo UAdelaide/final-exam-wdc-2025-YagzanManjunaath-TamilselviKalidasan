@@ -11,7 +11,7 @@ const fetch_dogs_and_owner_name = `SELECT d.name as dog_name, d.size as size, u.
 "owner_username": "alice123"
 }
 */
-const fetch_open_walk_requests = `SELECT req.request_id, d;`;
+const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, requested_time,;`;
 module.exports = {
     fetch_dogs_and_owner_name,
     fetch_open_walk_requests
