@@ -65,12 +65,12 @@
         <div class="dogView">
 
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
-                <img :src="dog" alt="" />
+                <img :src="dog.image" alt="" />
                 <p>Dog {{dog}}</p>
             </div>
 
             <div class="dogOfDay">
-                <img :src="dogOfDay" alt="" />
+                <img :src="dogOfDay.image" alt="" />
                 <p> Dog of the Day</p>
             </div>
         </div>
@@ -92,7 +92,7 @@
                 async fetchRandomDog(text) {
                     try {
                         const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
-                         dogOfDay.url = data.message;
+                         dogOfDay.image = data.message;
                          this.dogOfDay = dogOfDay;
                     } catch (err) {
                         console.log("Error fetching random dog image");
