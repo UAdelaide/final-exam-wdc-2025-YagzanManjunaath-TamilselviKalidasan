@@ -186,9 +186,9 @@ let db;
             /* Insert WalkRatings  */
             await Promise.all(insert_walk_ratings_queries.map((query) => db.execute(query)));
 
-
+            console.log('INFO : Test data inserted into Database `DogWalkService`');
         }
-        console.log('INFO : Test data inserted into Database `DogWalkService`');
+
 
     } catch (err) {
         console.error('ERROR : Error setting up database. Ensure Mysql is running: service mysql start', err);
