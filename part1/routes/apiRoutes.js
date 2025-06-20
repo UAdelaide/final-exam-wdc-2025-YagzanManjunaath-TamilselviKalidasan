@@ -29,7 +29,7 @@ router.get('/dogs', async function (req, res, next) {
 
     } catch (err) {
         const error_message = `Error occurred during request ${err.message}`;
-        console.er(`ERROR : ${error_message}`);
+        console.error(`ERROR : ${error_message}`);
         res.status(500).json({ error: error_message });
     }
 });
