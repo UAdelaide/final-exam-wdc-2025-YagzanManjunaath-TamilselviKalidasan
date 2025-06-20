@@ -7,6 +7,7 @@ const {fetch_dogs_and_owner_name} = require('./data/queries');
 router.get('/dogs', function (req, res, next) {
     try {
 
+        let dogs_with_owner_name_list = await fetch_dogs_and_owner_name
 
 
     } catch (err) {
