@@ -25,8 +25,7 @@ const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(w_rati
                                      as completed_walks
                                 from WalkRatings w_rating
                                     inner join Users u on u.user_id = w_rating.walker_id
-                                     group by w_rating.walker_id
-                                     ;`;
+                                     group by w_rating.walker_id;`;
 module.exports = {
     fetch_dogs_and_owner_name,
     fetch_open_walk_requests
