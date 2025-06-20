@@ -8,7 +8,7 @@ router.get('/dogs', async function (req, res, next) {
     try {
 
         /*
-            Fetch D
+            Fetch Dogs from database using query from queries.js
         */
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
