@@ -7,8 +7,9 @@ const { fetch_dogs_and_owner_name } = require('./data/queries');
 router.get('/dogs', async function (req, res, next) {
     try {
 
+        /* If no dogs are in the database , return 204 No content with emnpty body */
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
-        /* */
+        /* If no dogs are in the database , return 204 No content with emnpty body */
         if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
             return res.status(204).send();
         }
