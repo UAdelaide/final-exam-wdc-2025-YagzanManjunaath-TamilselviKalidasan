@@ -18,7 +18,7 @@ const fetch_open_walk_requests = `SELECT w_req.request_id, d.name as dog_name, w
 }
  */
 
-const fetch_walker_summary = `SELECT u.username as walker_username, COUNT() .request_id, d.name as dog_name, w_req.requested_time,
+const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(ratings_id) as total_ratings, AVG(ratings) .request_id, d.name as dog_name, w_req.requested_time,
 ;`;
 module.exports = {
     fetch_dogs_and_owner_name,
