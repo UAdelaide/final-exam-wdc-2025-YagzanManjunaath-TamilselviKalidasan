@@ -77,7 +77,38 @@ router.get('/walkrequests/open', async function (req, res, next) {
 });
 
 /* GET Sumamry of each walker -  ratings and count of completed walks walk requests information */
+outer.get('/walkers/summary', async function (req, res, next) {
+    try {
 
+        /*
+            Fetch summary of completed walks using query from queries.js
+            const fetch_open_walk_requests = `
+                SELECT w_req.request_id, d.name as dog_name, w_req.requested_time,
+                       w_req.duration_minutes,w_req.location,u.username as owner_username
+                            from WalkRequests w_req
+                                inner join Dogs d on w_req.dog_id = d.dog_id
+                                inner join Users u on d.owner_id = u.user_id
+                            where w_req.status = 'open';`;
+
+        */
+        let open_walk_request_result = await query(fetch_open_walk_requests);
+        /*
+            If no open requests are in the database , return 204 No content with emnpty body
+        */
+        if (open_walk_request_result && open_walk_request_result.length === 0) {
+            return res.status(204).send();
+        }
+        /*
+           If found, return list as Json with status code 200
+        */
+        return res.status(200).json(open_walk_request_result);
+
+    } catch (err) {
+        const error_message = `Error occurred during fetch open walks request: ${err.message}`;
+        console.error(`ERROR : ${error_message}`);
+        return res.status(500).json({ error: error_message });
+    }
+});
 
 
 module.exports = router;
