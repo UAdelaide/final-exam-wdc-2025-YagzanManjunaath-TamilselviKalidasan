@@ -30,7 +30,7 @@ const fetch_walker_summary = `
                     u.username as walker_username,
                     COUNT(w_rating.rating_id) as total_ratings,
                     ROUND(AVG(w_rating.rating), 1) as average_rating,
-                    COUNT ()
+                    COUNT (w_req.request_id) as completed_walks
                     (
                         SELECT
                             COUNT(w_rating_inner.rating_id)
