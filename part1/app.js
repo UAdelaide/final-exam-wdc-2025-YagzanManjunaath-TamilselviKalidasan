@@ -93,6 +93,7 @@ let db;
             `INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');`
         ];
 
+        // Create
         await Promise.all(table_queries.map((query) => db.execute(query)));
         // Insert data if table is empty
         const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
@@ -150,7 +151,7 @@ let db;
                 `);
         }
 
-        // Insert WalkRatings
+        /* Insert WalkRatings */
         const [wallRatings_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
         if (walkRequest_rows[0].count === 0) {
             await db.execute(`
