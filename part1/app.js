@@ -158,8 +158,10 @@ let db;
             await db.execute(`
                 INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments, rated_at)
-                        VALUES(0, 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
-                    
+                        VALUES(
+                        (SELECT WalkRequests.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
+                        , 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
+
                 `);
         }
 
