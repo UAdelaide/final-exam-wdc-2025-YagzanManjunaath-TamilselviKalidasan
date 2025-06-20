@@ -32,7 +32,7 @@ router.get('/dogs', async function (req, res, next) {
         return res.status(200).json(dogs_with_owner_name_result);
 
     } catch (err) {
-        const error_message = `Error occurred during request ${err.message}`;
+        const error_message = `Error occurred during fetch dogs request ${err.message}`;
         console.error(`ERROR : ${error_message}`);
         return res.status(500).json({ error: error_message });
     }
