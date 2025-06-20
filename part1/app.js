@@ -113,7 +113,7 @@ let db;
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
                     );`,
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Bella' LIMIT 1),'2025-06-10 09:30:00',45,'Beachside Ave','Max'
+                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Bella' LIMIT 1),'2025-06-10 09:30:00',45,'Beachside Ave','completed'
                     );`,
 
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
