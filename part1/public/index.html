@@ -82,7 +82,7 @@
         const vueapp = Vue.createApp({
             data() {
                 return {
-                    dogOfDay: "",
+                    dogOfDay: {},
                     dogList: [],
                     dogDisplayCount:0
                 };
@@ -92,7 +92,8 @@
                 async fetchRandomDog(text) {
                     try {
                         const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
-                        this.dogOfDay = data.message;
+                         dogOfDay.url = data.message;
+                         this.dogOfDay = dogOfDay;
                     } catch (err) {
                         console.log("Error fetching random dog image");
                     }
