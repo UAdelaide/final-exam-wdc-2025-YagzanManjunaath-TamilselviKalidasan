@@ -93,7 +93,7 @@
 
 <body>
     <div id="app">
-        <div class="clearfix">
+        <div class="clearfix" @click="fetchRandomDog();"">
             <p class="title">Dog Walk Service</p>
             <button class="load-more" @click="isModalVisible=true;">Load more Random Dogs</button>
             <p class="hero-text">This section gives information about the webpage.This is a large text content that has
@@ -113,7 +113,7 @@
         <p class="hero-text">The below section would be populated with random dog images on pressing the load more dogs
             button.
         </p>
-        <div class="dogView" @click="fetchRandomDog();">
+        <div class="dogView" ">
             <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
 
