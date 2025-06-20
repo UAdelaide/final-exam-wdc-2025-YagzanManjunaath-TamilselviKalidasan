@@ -59,7 +59,7 @@
 
         <div class="dogView">
 
-            <div class="dogList" v-for="dog in dogList">
+            <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
                 <img :src="dog" alt="" />
                 <p>Dog {{dog}}</p>
             </div>
