@@ -159,24 +159,7 @@ let db;
                 INSERT INTO DogWalkService.WalkRatings
                         ( request_id, walker_id, owner_id, rating, comments, rated_at)
                         VALUES(0, 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
-                    );
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Bella' LIMIT 1),'2025-06-10 09:30:00',45,'Beachside Ave','accepted'
-                    );
-
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Krypto' LIMIT 1),'2025-06-12 10:30:00',30,'Metropolis','open'
-                    );
-
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
-                    );
-
-                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
-                    );
+                    
                 `);
         }
 
