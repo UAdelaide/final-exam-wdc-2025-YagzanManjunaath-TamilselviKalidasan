@@ -117,11 +117,10 @@ let db;
         if (user_rows[0].count === 0) {
             await Promise.all(insert_user_queries.map((query) => db.execute(query)));
             /* Insert dogs if user and dogs table are empty */
-            const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-            if (dog_rows[0].count === 0) {
-                await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
-            }
-            /* Insert dogs if user and dogs table are empty */
+
+            await Promise.all(insert_dogs_queries.map((query) => db.execute(query)));
+
+
         }
 
 
