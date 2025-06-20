@@ -99,7 +99,7 @@
                         let fileName = urlSplit[urlSplit.length -1];
                         let breedName = urlSplit[urlSplit.length -2];
 
-                         dogOfDay.image = data.fileName.;
+                         dogOfDay.image = fileName.split('.')[0];
                          dogOfDay.image = data.message;
                          this.dogOfDay = dogOfDay;
                     } catch (err) {
