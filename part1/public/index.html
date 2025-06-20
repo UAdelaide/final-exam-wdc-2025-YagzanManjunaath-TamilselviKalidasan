@@ -53,13 +53,14 @@
         </div>
 
         <div class="dogView">
-            <div class="dogOfDay">
-                <img :src="dogOfDay" alt="" />
-                <p> Dog of the Day</p>
-            </div>
+
             <div class="dogList" v-for="dog in dogList">
                 <img :src="dog" alt="" />
                 <p>Dog {{dog}}</p>
+            </div>
+            <div class="dogOfDay">
+                <img :src="dogOfDay" alt="" />
+                <p> Dog of the Day</p>
             </div>
         </div>
     </div>
