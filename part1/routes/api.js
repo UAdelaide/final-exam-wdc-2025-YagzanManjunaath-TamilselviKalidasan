@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const {query} = require('../')
 /* GET users listing. */
 router.get('/dogs', function (req, res, next) {
     try {
