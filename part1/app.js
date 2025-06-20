@@ -123,99 +123,102 @@ let db;
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
                         (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
                     );`,
-
             `INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
-                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','completed'
-                    );`
+                        (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
+                    );`,
+
+            `INSERT INTO WalkRequests(dog_id, requested_time, duration_minutes, location, status) values(
+                (SELECT Dogs.dog_id from Dogs where Dogs.name = 'Sugar' LIMIT 1), '2025-06-12 11:30:00', 20, 'Egmore grounds', 'completed'
+                    ); `
         ];
 
         const insert_walk_applications_queries = [
             `INSERT INTO DogWalkService.WalkApplications
-                        (request_id, walker_id, applied_at, status)
-                        VALUES(
-                            (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, applied_at, status)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                             inner join Dogs d on w_req.dog_id = d.dog_id
-                            where d.name  = 'Max' LIMIT 1),
-                            (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
-                            '2025-06-10 10:00:00',
-                            'accepted'
-                        );`,
+                            where d.name = 'Max' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'bobwalker' LIMIT 1),
+        '2025-06-10 10:00:00',
+            'accepted'
+                        ); `,
             `INSERT INTO DogWalkService.WalkApplications
-                        (request_id, walker_id, applied_at, status)
-                        VALUES(
-                            (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, applied_at, status)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                             inner join Dogs d on w_req.dog_id = d.dog_id
-                            where d.name  = 'Ace' LIMIT 1),
-                            (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
-                            '2025-06-11 18:30:00',
-                            'accepted'
-                        );`,
+                            where d.name = 'Ace' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'bobwalker' LIMIT 1),
+        '2025-06-11 18:30:00',
+            'accepted'
+                        ); `,
             `INSERT INTO DogWalkService.WalkApplications
-                        (request_id, walker_id, applied_at, status)
-                        VALUES(
-                            (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, applied_at, status)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                             inner join Dogs d on w_req.dog_id = d.dog_id
-                            where d.name  = 'Sugar' LIMIT 1),
-                            (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
-                            '2025-06-12 11:45:00',
-                            'accepted'
-                        );`,
+                            where d.name = 'Sugar' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'alfred' LIMIT 1),
+        '2025-06-12 11:45:00',
+            'accepted'
+                        ); `,
             `INSERT INTO DogWalkService.WalkApplications
-                        (request_id, walker_id, applied_at, status)
-                        VALUES(
-                            (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, applied_at, status)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                             inner join Dogs d on w_req.dog_id = d.dog_id
-                            where d.name  = 'Krypto' LIMIT 1),
-                            (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
-                            '2025-06-12 11:30:00',
-                            'accepted'
-                        );`
+                            where d.name = 'Krypto' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'alfred' LIMIT 1),
+        '2025-06-12 11:30:00',
+            'accepted'
+                        ); `
         ];
 
 
         const insert_walk_ratings_queries = [
             `INSERT INTO DogWalkService.WalkRatings
-                        ( request_id, walker_id, owner_id, rating, comments)
-                        VALUES(
-                        (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, owner_id, rating, comments)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                         inner join Dogs d on w_req.dog_id = d.dog_id
-                        where d.name  = 'Max' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1),
-                         4,
-                         'Good job,Bob');`,
+                        where d.name = 'Max' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'bobwalker' LIMIT 1),
+        (SELECT Users.user_id from Users where Users.username = 'alice123' LIMIT 1),
+        4,
+            'Good job,Bob'); `,
 
             `INSERT INTO DogWalkService.WalkRatings
-                        ( request_id, walker_id, owner_id, rating, comments)
-                        VALUES(
-                        (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, owner_id, rating, comments)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                         inner join Dogs d on w_req.dog_id = d.dog_id
-                        where d.name  = 'Ace' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'bobwalker' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
-                         2,
-                         'He left Ace hungry');`,
+                        where d.name = 'Ace' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'bobwalker' LIMIT 1),
+        (SELECT Users.user_id from Users where Users.username = 'batman' LIMIT 1),
+        2,
+            'He left Ace hungry'); `,
 
             `INSERT INTO DogWalkService.WalkRatings
-                        ( request_id, walker_id, owner_id, rating, comments)
-                        VALUES(
-                        (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, owner_id, rating, comments)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                         inner join Dogs d on w_req.dog_id = d.dog_id
-                        where d.name  = 'Sugar' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1),
-                         5,
-                         'Alfred, you are the best');`,
+                        where d.name = 'Sugar' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'alfred' LIMIT 1),
+        (SELECT Users.user_id from Users where Users.username = 'batman' LIMIT 1),
+        5,
+            'Alfred, you are the best'); `,
             `INSERT INTO DogWalkService.WalkRatings
-                        ( request_id, walker_id, owner_id, rating, comments)
-                        VALUES(
-                        (SELECT w_req.request_id from WalkRequests w_req
+            (request_id, walker_id, owner_id, rating, comments)
+        VALUES(
+            (SELECT w_req.request_id from WalkRequests w_req
                         inner join Dogs d on w_req.dog_id = d.dog_id
-                        where d.name  = 'Krypto' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
-                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1),
-                         4,
-                         'Krypto was hurt during the walk');`
+                        where d.name = 'Krypto' LIMIT 1),
+            (SELECT Users.user_id from Users where Users.username = 'alfred' LIMIT 1),
+        (SELECT Users.user_id from Users where Users.username = 'alice123' LIMIT 1),
+        4,
+            'Krypto was hurt during the walk'); `
 
         ];
         /* Create Tables */
