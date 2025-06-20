@@ -106,7 +106,7 @@
         <p class="hero-text">The below section would be populated with random dog images on pressing the load more dogs
             button.
         </p>
-        <div class="dogView" @click="isModalVisible.value=true;console.log();">
+        <div class="dogView" @click="isModalVisible.value=true;console.log(isModalVisible);fetchRandomDog();">
             <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
 
