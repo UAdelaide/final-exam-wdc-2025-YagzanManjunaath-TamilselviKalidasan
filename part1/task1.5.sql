@@ -10,13 +10,19 @@ INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayn
 INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
 
 
+-- Five dogs:
+-- A dog named Max, who is medium-sized and owned by alice123.
+-- A dog named Bella, who is small and owned by carol123.
+-- Three more dogs with details of your choosing.
+
 INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
     (SELECT Users.user_id from Users where Users.username  = 'alice123')
 );
-Five dogs:
-A dog named Max, who is medium-sized and owned by alice123.
-A dog named Bella, who is small and owned by carol123.
-Three more dogs with details of your choosing.
+
+INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
+    (SELECT Users.user_id from Users where Users.username  = 'alice123')
+);
+
 Five walk requests:
 A request for Max at 2025-06-10 08:00:00 for 30 minutes at Parklands, with status open.
 A request for Bella at 2025-06-10 09:30:00 for 45 minutes at Beachside Ave, with status accepted.
