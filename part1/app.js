@@ -50,14 +50,7 @@ let db;
                 size ENUM('small', 'medium', 'large') NOT NULL,
                 FOREIGN KEY (owner_id) REFERENCES Users(user_id)
             );`,
-
-        ];
-        // Create a table if it doesn't exist
-        await db.execute(
-
-            `
-
-            CREATE TABLE WalkRequests (
+            `CREATE TABLE WalkRequests (
                 request_id INT AUTO_INCREMENT PRIMARY KEY,
                 dog_id INT NOT NULL,
                 requested_time DATETIME NOT NULL,
@@ -66,9 +59,8 @@ let db;
                 status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
-            );
-
-            CREATE TABLE WalkApplications (
+            );`,
+            `CREATE TABLE WalkApplications (
                 application_id INT AUTO_INCREMENT PRIMARY KEY,
                 request_id INT NOT NULL,
                 walker_id INT NOT NULL,
@@ -77,7 +69,17 @@ let db;
                 FOREIGN KEY (request_id) REFERENCES WalkRequests(request_id),
                 FOREIGN KEY (walker_id) REFERENCES Users(user_id),
                 CONSTRAINT unique_application UNIQUE (request_id, walker_id)
-            );
+            );`
+
+        ];
+        // Create a table if it doesn't exist
+        await db.execute(
+
+            `
+
+
+
+
 
             CREATE TABLE WalkRatings (
                 rating_id INT AUTO_INCREMENT PRIMARY KEY,
