@@ -53,13 +53,22 @@ router.get('/walkrequests/open', async function (req, res, next) {
 
         /*
             Fetch Open walks from database using query from queries.js
-            const fetch_open_walk_requests = `
-                SELECT w_req.request_id, d.name as dog_name, w_req.requested_time,
-                       w_req.duration_minutes,w_req.location,u.username as owner_username
-                            from WalkRequests w_req
-                                inner join Dogs d on w_req.dog_id = d.dog_id
-                                inner join Users u on d.owner_id = u.user_id
-                            where w_req.status = 'open';`;
+                const fetch_open_walk_requests = `
+                        SELECT
+                            w_req.request_id,
+                            d.name as dog_name,
+                            w_req.requested_time,
+                            w_req.duration_minutes,
+                            w_req.location,
+                            u.username as owner_username
+                        from
+                            WalkRequests w_req
+                            inner join Dogs d on w_req.dog_id = d.dog_id
+                            inner join Users u on d.owner_id = u.user_id
+                        where
+                            w_req.status = 'open';
+                `;
+
 
         */
         let open_walk_request_result = await query(fetch_open_walk_requests);
