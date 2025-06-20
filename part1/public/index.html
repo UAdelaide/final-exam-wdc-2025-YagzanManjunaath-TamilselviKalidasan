@@ -76,6 +76,12 @@
             <p> Name {{dogOfDay.name}}</p>
             <p> Type {{dogOfDay.breed}}</p>
         </div>
+
+        <p class="hero-text">The section gives information about the webpage.This is a large text content that has
+                no
+                significance to the webpage. This web page can be used to randomly fetch a dog's image
+                You can scroll up and down here. We try to deliver a good website.
+            </p>
         <div class="dogView" @click="fetchRandomDog()">
             <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
