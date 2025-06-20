@@ -161,7 +161,11 @@ let db;
                         VALUES(
                         (SELECT w_req.request_id from WalkRequests w_req
                         inner join Dogs d on w_req.dog_id = d.dog_id
-                        where d.name  = 'Max' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
+                        where d.name  = 'Max' LIMIT 1),
+                        (SELECT w_req.request_id from WalkRequests w_req
+                        inner join Dogs d on w_req.dog_id = d.dog_id
+                        where d.name  = 'Max' LIMIT 1)
+                        '2025-06-12 11:30:00',20,'Egmore grounds','open'
                         , 0, 0, 0, 0, '', CURRENT_TIMESTAMP);
 
                 `);
