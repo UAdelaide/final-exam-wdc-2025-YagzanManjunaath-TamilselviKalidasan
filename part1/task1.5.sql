@@ -27,7 +27,7 @@ INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
     (SELECT Users.user_id from Users where Users.username  = 'batman')
 );
 
-INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
+INSERT INTO Dogs(name,size,owner_id) values ('Titus','medium',
     (SELECT Users.user_id from Users where Users.username  = 'batman')
 );
 
