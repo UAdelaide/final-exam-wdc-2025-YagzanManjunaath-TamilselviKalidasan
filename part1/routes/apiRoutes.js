@@ -27,7 +27,7 @@ router.get('/dogs', async function (req, res, next) {
         */
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
-            If no dogs are in the database , return 200 No content with emnpty body
+            If no dogs are in the database , return 200 wth empty array
         */
         if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
             return res.status(200).json([]);
@@ -72,7 +72,7 @@ router.get('/walkrequests/open', async function (req, res, next) {
         */
         let open_walk_request_result = await query(fetch_open_walk_requests);
         /*
-            If no open requests are in the database , return 204 No content with emnpty body
+            If no open requests are in the database ,  return 200 wth empty array
         */
         if (open_walk_request_result && open_walk_request_result.length === 0) {
             return res.status(200).json([]);
@@ -122,7 +122,7 @@ router.get('/walkers/summary', async function (req, res, next) {
         */
         let fetch_walker_summary_result = await query(fetch_walker_summary);
         /*
-            If no open requests are in the database , return 204 No content with emnpty body
+            If no open requests are in the database ,  return 200 wth empty array
         */
         if (fetch_walker_summary_result && fetch_walker_summary_result.length === 0) {
             return res.status(200).json([]);
