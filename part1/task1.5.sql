@@ -31,8 +31,8 @@ INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
     (SELECT Users.user_id from Users where Users.username  = 'batman')
 );
 
-INSERT INTO Dogs(name,size,owner_id) values ('Titus','medium',
-    (SELECT Users.user_id from Users where Users.username  = 'batman')
+INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
+    (SELECT Users.user_id from Users where Users.username  = 'alice123')
 );
 
 Five walk requests:
