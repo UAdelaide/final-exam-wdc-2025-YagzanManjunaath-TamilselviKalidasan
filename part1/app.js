@@ -198,8 +198,10 @@ let db;
 app.use(logger('dev'));
 // Middleware - Json parser for parsing Request body
 app.use(express.json());
-// Middleware - Json parser for parsing Request body
+// Middleware - Json parser for parsing Urlencoded objects
 app.use(express.urlencoded({ extended: false }));
+
+// Middleware - Parser for cookies
 app.use(cookieParser());
 
 // Routes
