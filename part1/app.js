@@ -128,28 +128,27 @@ let db;
         }
 
         // Insert WalkRequests
-        const [walRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+        const [walRequest_rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
         if (walRequest_rows[0].count === 0) {
             await db.execute(`
-                    INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
-                        (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
-                    );
+                    INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+     (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Max' LIMIT 1),'2025-06-10 08:00:00',30,'Parklands','open'
+);
+INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+     (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Bella' LIMIT 1),'2025-06-10 09:30:00',45,'Beachside Ave','accepted'
+);
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Bella','small',
-                        (SELECT Users.user_id from Users where Users.username  = 'carol123' LIMIT 1)
-                    );
+INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+     (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Krypto' LIMIT 1),'2025-06-12 10:30:00',30,'Metropolis','open'
+);
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
-                        (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
-                    );
+INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+     (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Ace' LIMIT 1),'2025-06-11 18:30:00',45,'Wayne Manor grounds','completed'
+);
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
-                        (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
-                    );
-
-                    INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
-                        (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
-                    );
+INSERT INTO WalkRequests(dog_id,requested_time,duration_minutes,location,status) values (
+     (SELECT Dogs.dog_id from Dogs where Dogs.name  = 'Sugar' LIMIT 1),'2025-06-12 11:30:00',20,'Egmore grounds','open'
+);
                 `);
         }
 
