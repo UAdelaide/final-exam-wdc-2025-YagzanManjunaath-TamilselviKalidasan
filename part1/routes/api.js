@@ -1,14 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const { query } = require('./data/mysql_config');
-const {fetch_dogs_and_owner_name} = require('./data/queries');
+const { fetch_dogs_and_owner_name } = require('./data/queries');
 
 /* GET All Dogs information */
 router.get('/dogs', async function (req, res, next) {
     try {
 
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
-        if(dogs_with_owner_name_result && dogs_with_owner_name_result.l)
+        if (dogs_with_owner_name_result && dogs_with_owner_name_result.length == 0) {
+            res.status(204).send();
+        }
 
 
 
