@@ -92,26 +92,26 @@ let db;
             `INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayne@example.com','martha123','owner');`,
             `INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');`
         ];
-        const dogs_insert_queries =[
+        const dogs_insert_queries = [
             `INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
-                    );
+                    );`,
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Bella','small',
+            `INSERT INTO Dogs(name,size,owner_id) values ('Bella','small',
                         (SELECT Users.user_id from Users where Users.username  = 'carol123' LIMIT 1)
-                    );
+                    );`,
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
+            `INSERT INTO Dogs(name,size,owner_id) values ('Ace','large',
                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
-                    );
+                    );`,
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
+            `INSERT INTO Dogs(name,size,owner_id) values ('Krypto','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'batman' LIMIT 1)
-                    );
+                    );`,
 
-                    INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
+            `INSERT INTO Dogs(name,size,owner_id) values ('Sugar','medium',
                         (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
-                    );
+                    );`
         ]
 
         /* Create Tables */
