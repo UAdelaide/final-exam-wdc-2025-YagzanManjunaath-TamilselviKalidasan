@@ -130,7 +130,7 @@ let db;
 
         const inser_walk_applications = [
             `INSERT INTO DogWalkService.WalkApplications
-                        ( request_id, walker_id, applied_at, status)
+                        (request_id, walker_id, applied_at, status)
                         VALUES(0, 0, 0, CURRENT_TIMESTAMP, 'pending');`
         ]
 
