@@ -37,12 +37,14 @@
             flex-direction: column;
             flex-basis: 1;
         }
-        .load-more{
-            color:white;
+
+        .load-more {
+            color: white;
             background-color: aqua;
             justify-content: flex-end;
         }
-        .dogOfDay{
+
+        .dogOfDay {
             display: flex;
             justify-content: center;
         }
@@ -86,7 +88,7 @@
                 return {
                     dogOfDay: {},
                     dogList: [],
-                    dogDisplayCount:0
+                    dogDisplayCount: 0
                 };
 
             },
@@ -95,16 +97,17 @@
                     try {
                         const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
 
+                        let dogOfDay = {};
                         let urlSplit = data.message.split('/')
-                        let fileName = urlSplit[urlSplit.length -1];
-                        let breedName = urlSplit[urlSplit.length -2];
+                        let fileName = urlSplit[urlSplit.length - 1];
+                        let breedName = urlSplit[urlSplit.length - 2];
 
-                         dogOfDay.name = fileName.split('.')[0];
-                         dogOfDay.breed = breedName;
-                         dogOfDay.image = data.message;
-                         dogOfDay.image = data.message;
+                        dogOfDay.name = fileName.split('.')[0];
+                        dogOfDay.breed = breedName;
+                        dogOfDay.image = data.message;
 
-                         this.dogOfDay = dogOfDay;
+
+                        this.dogOfDay = dogOfDay;
                     } catch (err) {
                         console.log("Error fetching random dog image");
                     }
