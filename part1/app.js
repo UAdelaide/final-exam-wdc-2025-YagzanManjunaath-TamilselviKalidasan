@@ -101,7 +101,7 @@ let db;
         INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
       `);
 
-      const [user_rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+      const [dog_rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
         if (user_rows[0].count === 0) {
             await db.execute(`
         INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
