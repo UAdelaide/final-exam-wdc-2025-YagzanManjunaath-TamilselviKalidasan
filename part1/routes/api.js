@@ -4,10 +4,11 @@ const { query } = require('./data/mysql_config');
 const {fetch_dogs_and_owner_name} = require('./data/queries');
 
 /* GET All Dogs information */
-router.get('/dogs', function (req, res, next) {
+router.get('/dogs', async function (req, res, next) {
     try {
 
-        let dogs_with_owner_name_list = await fetch_dogs_and_owner_name
+        let dogs_with_owner_name_list = await query(fetch_dogs_and_owner_name);
+        
 
 
     } catch (err) {
