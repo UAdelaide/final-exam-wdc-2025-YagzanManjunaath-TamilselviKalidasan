@@ -34,8 +34,9 @@ const fetch_walker_summary = `
                 from Users u
                         left join WalkRatings w_rating on u.user_id = w_rating.walker_id
                         left join WalkApplications w_appln on u.user_id = w_appln.walker_id
+                            and w_appln.status = 'accepted'
                         left join WalkRequests w_req on w_rating.user_id = w_req.walker_id
-                        and w_req.status='completed'
+                            and w_req.status = 'completed'
                 where
                     u.role = 'walker'
                 group by
