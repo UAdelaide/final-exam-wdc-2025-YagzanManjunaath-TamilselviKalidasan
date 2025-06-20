@@ -191,7 +191,7 @@ let db;
         console.log('INFO : Test data inserted into Database `DogWalkService`');
 
     } catch (err) {
-        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+        console.error('ERROR : Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
 })();
 
