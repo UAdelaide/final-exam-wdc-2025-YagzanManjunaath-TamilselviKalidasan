@@ -97,19 +97,27 @@ outer.get('/walkers/summary', async function (req, res, next) {
 
         /*
             Fetch summary of completed walks using query from queries.js
-       const fetch_walker_summary = `
-        SELECT u.username as walker_username, COUNT(w_rating.rating_id) as total_ratings,
+                const fetch_walker_summary =
+                `
+                    SELECT
+                        u.username as walker_username,
+                        COUNT(w_rating.rating_id) as total_ratings,
                         AVG(w_rating.rating) as average_rating,
                         (
-                            SELECT COUNT(w_rating_inner.rating_id) from WalkRatings w_rating_inner
-                                inner join WalkRequests w_req
-                                    on w_rating_inner.request_id = w_req.request_id
-                                    where w_rating_inner.walker_id = w_rating.walker_id
-                                        and w_req.status = 'completed'
-                        )as completed_walks
-                        from WalkRatings w_rating
-                            inner join Users u on u.user_id = w_rating.walker_id
-                                group by w_rating.walker_id;`
+                            SELECT
+                                COUNT(w_rating_inner.rating_id)
+                            from
+                                WalkRatings w_rating_inner
+                                inner join WalkRequests w_req on w_rating_inner.request_id = w_req.request_id
+                            where
+                                w_rating_inner.walker_id = w_rating.walker_id
+                                and w_req.status = 'completed'
+                        ) as completed_walks
+                    from
+                        WalkRatings w_rating
+                        inner join Users u on u.user_id = w_rating.walker_id
+                    group by
+                        w_rating.walker_id;`
 
         */
         let open_walk_request_result = await query(fetch_open_walk_requests);
