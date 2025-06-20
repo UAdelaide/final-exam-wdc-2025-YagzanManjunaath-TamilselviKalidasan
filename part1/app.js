@@ -205,7 +205,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Routes
-const apiRoutes = require('./routes/api');
+const apiRoutes = require('./routes/apiRoutes');
 app.use('/api/', apiRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
