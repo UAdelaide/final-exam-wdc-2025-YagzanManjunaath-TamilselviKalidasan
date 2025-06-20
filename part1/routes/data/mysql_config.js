@@ -9,17 +9,17 @@ const pool = mysql.createPool({
 });
 
 const query = (sql, args) => new Promise((resolve, reject) => {
-        pool.getConnection(function (err, connection) {
-            if (err) {
-                return reject(err);
+    pool.getConnection(function (err, connection) {
+        if (err) {
+            return reject(err);
+        }
+        connection.query(sql, args, function (result_err, result) {
+            connection.release();
+            if (result_err) {
+                return reject(result_err);
             }
-            connection.query(sql, args, function (err, result) {
-                connection.release();
-                if (err) {
-                    return reject(err);
-                }
-                return resolve(result);
-            });
+            return resolve(result);
         });
-
     });
+
+});
