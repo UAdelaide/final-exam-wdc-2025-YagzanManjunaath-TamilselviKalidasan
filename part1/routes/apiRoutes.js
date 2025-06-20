@@ -4,7 +4,7 @@ const { query } = require('../data/mysql_config');
 const {
     fetch_dogs_and_owner_name,
 
- } = require('../data/queries');
+} = require('../data/queries');
 
 /* GET All Dogs information */
 router.get('/dogs', async function (req, res, next) {
@@ -53,10 +53,10 @@ router.get('/walkrequests/open', async function (req, res, next) {
                             from WalkRequests w_req
                             inner join Dogs d on w_req.dog_id = d.dog_id
                             inner join Users u on d.owner_id = u.user_id;
-                            ;`;
+            `;
 
         */
-        let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
+        let open_walk_request_ = await query(fetch_dogs_and_owner_name);
         /*
             If no dogs are in the database , return 204 No content with emnpty body
         */
