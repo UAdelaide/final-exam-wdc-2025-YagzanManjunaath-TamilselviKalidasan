@@ -188,7 +188,7 @@ let db;
 
 
         }
-        con
+        console.log('INFO : Test data inserted into Database ')
 
     } catch (err) {
         console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
