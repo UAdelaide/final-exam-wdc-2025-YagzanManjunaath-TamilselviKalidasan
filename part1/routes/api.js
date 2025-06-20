@@ -22,7 +22,9 @@ router.get('/dogs', async function (req, res, next) {
         if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
             return res.status(204).send();
         }
-
+        /*
+           If 
+        */
         return res.status(200).json(dogs_with_owner_name_result);
 
     } catch (err) {
