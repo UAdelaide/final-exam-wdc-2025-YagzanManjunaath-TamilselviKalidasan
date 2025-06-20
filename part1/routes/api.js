@@ -23,10 +23,7 @@ router.get('/dogs', async function (req, res, next) {
             return res.status(204).send();
         }
 
-        
-
-
-
+        return res.status(200).json(dogs_with_owner_name_result);
 
     } catch (err) {
         const error_message = `Error occurred during request ${err.message}`;
