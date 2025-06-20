@@ -156,7 +156,7 @@ let db;
                             inner join Dogs d on w_req.dog_id = d.dog_id
                             where d.name  = 'Sugar' LIMIT 1),
                             (SELECT Users.user_id from Users where Users.username  = 'alfred' LIMIT 1),
-                            '2025-06-11 18:30:00',
+                            '2025-06-12 11:45:00',
                             'accepted'
                         );`,
             `INSERT INTO DogWalkService.WalkApplications
