@@ -71,7 +71,7 @@
             display: table;
         }
 
-        .dogList {
+        .dogView {
             display: flex;
             flex-direction: column;
             flex-basis: 1;
@@ -91,11 +91,12 @@
             </p>
         </div>
 
-        <div class="dogList">
+        <div class="dogView">
             <div class="dogOfDay">
                 <img :src="dogOfDay" alt="" />
                 <p> Dog of the Day</p>
             </div>
+            <div class="dogList"> </div>
         </div>
     </div>
 </body>
