@@ -37,12 +37,12 @@ router.get('/dogs', async function (req, res, next) {
 //
 
 
-/* GET All Dogs information */
+/* GET all open walk requests information */
 router.get('/walkrequests/open', async function (req, res, next) {
     try {
 
         /*
-            Fetch Dogs from database using query from queries.js
+            Fetch Open walks from database using query from queries.js
             const fetch_dogs_and_owner_name =
             `
             SELECT d.name as dog_name, d.size as size, u.name as owner_username
