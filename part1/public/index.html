@@ -118,17 +118,17 @@
 
                         const dogList = [];
                         for (data of dataList) {
-                            let dogOfDay = {};
+                            let dog = {};
                             let urlSplit = data.message.split('/')
                             let fileName = urlSplit[urlSplit.length - 1];
                             let breedName = urlSplit[urlSplit.length - 2];
 
-                            dogOfDay.name = fileName.split('.')[0];
-                            dogOfDay.breed = breedName;
-                            dogOfDay.image = data.message;
+                            dog.name = fileName.split('.')[0];
+                            dog.breed = breedName;
+                            dog.image = data.message;
 
 
-                            this.dogOfDay = dogOfDay;
+                            dogList.push(dog);
                         }
                         this.dogList = dataList.message;
 
