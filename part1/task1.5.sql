@@ -1,4 +1,4 @@
--- INSERT QUERIES FOR % USERS
+-- INSERT QUERIES FOR 5 USERS
 INSERT INTO Users(username,email,password_hash,role) values ('alice123','alice@example.com','hashed123','owner');
 INSERT INTO Users(username,email,password_hash,role) values ('bobwalker','bob@example.com','hashed456','walker');
 INSERT INTO Users(username,email,password_hash,role) values ('carol123','carol@example.com','hashed789','owner');
@@ -6,10 +6,8 @@ INSERT INTO Users(username,email,password_hash,role) values ('batman','brucewayn
 INSERT INTO Users(username,email,password_hash,role) values ('alfred','alfred@example.com','thomas123','walker');
 
 
--- Five dogs:
--- A dog named Max, who is medium-sized and owned by alice123.
--- A dog named Bella, who is small and owned by carol123.
--- Three more dogs with details of your choosing.
+
+-- INSERT QUERIES FOR 5 USERS
 
 INSERT INTO Dogs(name,size,owner_id) values ('Max','medium',
     (SELECT Users.user_id from Users where Users.username  = 'alice123' LIMIT 1)
