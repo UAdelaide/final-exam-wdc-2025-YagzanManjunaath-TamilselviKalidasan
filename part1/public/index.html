@@ -69,19 +69,22 @@
             font-size: large;
             justify-self: flex-end;
         }
-        .popup{
+
+        .popup {
             position: absolute;
             z-index: 200;
             top: 200px;
-            right:100px;
+            right: 100px;
             background-color: beige;
             border: 2px solid black;
         }
-        .invisible-button{
+
+        .invisible-button {
             opacity: 0;
         }
-        .hide{
-            top:20px;
+
+        .hide {
+            top: 20px;
         }
     </style>
 
@@ -118,15 +121,16 @@
                 <p class="dog-breed"> Kind {{dogOfDay.breed}}</p>
             </div>
         </div>
-          <div class="popup" v-if="isModalVisible">
+        <div class="popup" v-if="isModalVisible">
 
-                <p class="hide">x</p>
-                <p>
-                    Close this popup to load another random dog
-                    <button class="invisible-button" @click="isModalVisible=false;dogDisplayCount= dogDisplayCount+1;">  </button>
+            <p class="hide">x<button class="invisible-button"
+                    @click="isModalVisible=false;dogDisplayCount= dogDisplayCount+1;"> </button></p>
+            <p>
+                Close this popup to load another random dog
 
-                </p>
-            </div>
+
+            </p>
+        </div>
     </div>
 
 
@@ -138,7 +142,7 @@
                     dogOfDay: {},
                     dogList: [],
                     dogDisplayCount: 0,
-                    isModalVisible:false
+                    isModalVisible: false
                 };
 
             },
