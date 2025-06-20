@@ -40,3 +40,6 @@ A request for Max at 2025-06-10 08:00:00 for 30 minutes at Parklands, with statu
 A request for Bella at 2025-06-10 09:30:00 for 45 minutes at Beachside Ave, with status accepted.
 Three more walk requests with details of your choosing.
 
+INSERT INTO WalkRequests(dog_id,size,owner_id) values ('Sugar','medium',
+    (SELECT Users.user_id from Users where Users.username  = 'alice123')
+);
