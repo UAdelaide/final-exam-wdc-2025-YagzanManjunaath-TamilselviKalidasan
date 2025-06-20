@@ -77,6 +77,9 @@
             background-color: beige;
             border: 2px solid black;
         }
+        .invisible-button{
+            opacity: 0;
+        }
     </style>
 
 </head>
@@ -115,7 +118,7 @@
           <div class="popup" v-if="isModalVisible">
                 <p>
                     Close this popup to load another random dog
-                    <button @click="isModalVisible=!isModalVisible;">  </button>
+                    <button class="invisible-button" @click="isModalVisible=!isModalVisible;">  </button>
                 </p>
             </div>
     </div>
