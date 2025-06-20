@@ -22,9 +22,9 @@ const fetch_walker_summary = `SELECT u.username as walker_username, COUNT(w_rati
                                     AVG(w_rating.rating) as average_rating,
                                     (SELECT COUNT(wr_inner.ratings_id) from WalkRatings wr_inner
                                             where wr_inner.walker_id = w_rating.walker_id and wr_inner.status = 'completed')
-                                     as completed_walks w_rating
-                                from WalkRatings
-                                    inner join Users u on 
+                                     as completed_walks
+                                from WalkRatings w_rating
+                                    inner join Users u on u.user_id =
                                      group by walker
                                      ;`;
 module.exports = {
