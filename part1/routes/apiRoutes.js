@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const { query } = require('../data/mysql_config');
-const { fetch_dogs_and_owner_name } = require('../data/queries');
+const {
+    fetch_dogs_and_owner_name,
+
+ } = require('../data/queries');
 
 /* GET All Dogs information */
 router.get('/dogs', async function (req, res, next) {
