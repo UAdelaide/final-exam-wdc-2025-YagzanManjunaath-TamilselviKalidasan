@@ -54,15 +54,18 @@
             font-size: xx-large;
             justify-content: center;
         }
-        .dogList{
-             display: flex;
+
+        .dogList {
+            display: flex;
             flex-direction: row;
         }
-        .dog-name{
+
+        .dog-name {
             font-size: medium;
             justify-self: flex-start;
         }
-        .dog-breed{
+
+        .dog-breed {
             font-size: large;
             justify-self: flex-end;
         }
@@ -89,8 +92,9 @@
             <p class="dog-breed"> Type {{dogOfDay.breed}}</p>
         </div>
 
-        <p class="hero-text">The below section would be populated with random dog images on pressing the load more dogs button.
-            </p>
+        <p class="hero-text">The below section would be populated with random dog images on pressing the load more dogs
+            button.
+        </p>
         <div class="dogView" @click="fetchRandomDog()">
             <p class="dogOfDay-title" v-if="dogDisplayCount>0"> List of Random Dogs</p>
             <div class="dogList" v-for="dog in dogList.slice(0,dogDisplayCount)">
@@ -99,7 +103,11 @@
                 <img :src="dog.image" alt="" />
                 <p class="dog-breed"> Kind {{dogOfDay.breed}}</p>
             </div>
-        <div> </div>
+            <div class="popup">
+                <p>
+                    
+                </p>
+            </div>
         </div>
     </div>
 
