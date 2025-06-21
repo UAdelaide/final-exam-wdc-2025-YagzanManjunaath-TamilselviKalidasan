@@ -93,6 +93,9 @@
 
             const login_response = await fetch(login_url, {
               method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
               body: JSON.stringify(requestBody),
             });
             if (!login_response.ok) {
@@ -104,7 +107,7 @@
             alert(json)
 
           } catch (err) {
-            console.log(`ERROR : Error Logging in to the Service ${err}` );
+            console.log(`ERROR : Error Logging in to the Service ${err}`);
           }
 
         },
