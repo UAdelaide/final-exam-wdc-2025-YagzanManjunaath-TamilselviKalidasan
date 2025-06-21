@@ -92,7 +92,7 @@
         async login() {
           try {
 
-            const login_url = "http://localhost:8080/api/users/login";
+            const login_url = "/api/users/login";
             const requestBody = { username: username.value, password: password.value };
 
             const login_response = await fetch(login_url, {
@@ -119,7 +119,7 @@
 
 
           } catch (err) {
-            isLoginError.value = true; 
+            isLoginError.value = true;
             console.log(`ERROR : Error Logging in to the Service ${err}`);
           }
 
