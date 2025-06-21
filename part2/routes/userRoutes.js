@@ -80,7 +80,7 @@ router.post('/logout', async (req, res) => {
         path: '/',
         httpOnly: true
       });
-      res.json({ message: 'Login successful', user: user });
+      res.json({ message: 'Logout successful' });
     });
   } catch (error) {
     res.status(500).json({ error: 'Logout failed' });
