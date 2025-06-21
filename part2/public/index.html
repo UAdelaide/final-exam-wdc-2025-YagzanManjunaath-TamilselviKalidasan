@@ -122,6 +122,7 @@
           } catch (err) {
             isLoginError.value = true;
             console.log(`ERROR : Error Logging in to the Service ${err}`);
+            const login_url = "/api/users/me";
           }
 
         },
@@ -129,7 +130,7 @@
            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
            const sessionId = localStorage.getItem('connect.sid') ;
            if(isLoggedIn && sessionId){
-            
+
            }
 
 
