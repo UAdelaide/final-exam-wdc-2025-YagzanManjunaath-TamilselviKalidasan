@@ -137,7 +137,8 @@
         }
         const logout = async () => {
           try {
-
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('connect.sid');
             window.location.replace('/index.html');
 
           } catch (err) {
