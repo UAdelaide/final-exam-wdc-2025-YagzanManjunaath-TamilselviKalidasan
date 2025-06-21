@@ -50,6 +50,9 @@
       border-radius: 0.375rem;
       margin: 10px;
     }
+    .login-error{
+      color: red;
+    }
   </style>
 </head>
 
@@ -68,7 +71,7 @@
           v-model="password">
 
         <button type="button" class="login-btn" @click="login">Login</button>
-        <p v-if="isLoginError"> Login Failed. Kindly try again </p>
+        <p v-if="isLoginError" class="login-error"> Login Failed. Kindly try again </p>
       </form>
     </div>
     <!--
