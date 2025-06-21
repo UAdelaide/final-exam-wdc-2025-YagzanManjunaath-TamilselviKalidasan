@@ -137,15 +137,14 @@
         }
         const logout = async () => {
           try {
-            const login_url = "/api/users/logout";
-          
+            const logout_url = "/api/users/logout";
 
-            const login_response = await fetch(login_url, {
+
+            const logout_response = await fetch(logout_url, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(requestBody),
             });
             if (!login_response.ok) {
               throw new Error(`Response status: ${login_response.status}`);
