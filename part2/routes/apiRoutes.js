@@ -21,12 +21,7 @@ router.get('/dogs', async function (req, res, next) {
                 `;
 
         const [result] = await db.query(fetch_dogs_and_owner_name);
-        /*
-            If no dogs are in the database , return 200 wth empty array
-        */
-        if (result && result.length === 0) {
-            return res.status(200).json([]);
-        }
+
         /*
            If found, return list as Json with status code 200
         */
