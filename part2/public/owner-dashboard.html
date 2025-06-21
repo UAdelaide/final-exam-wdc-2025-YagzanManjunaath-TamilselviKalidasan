@@ -170,11 +170,11 @@
         };
           const loadDogsOfUser = async () => {
           try {
-            const logout_url = "/api/users/dogs";
+            const fetchDogsUrl = "/api/users/dogs";
 
             /* Make an API call to Logout endpoint */
-            const logout_response = await fetch(logout_url, {
-              method: "POST",
+            const fetch_Dogs_response = await fetch(fetchDogsUrl, {
+              method: "GET",
               headers: {
                 "Content-Type": "application/json",
               },
