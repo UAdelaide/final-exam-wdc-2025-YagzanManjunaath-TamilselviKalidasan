@@ -46,11 +46,12 @@ router.post('/login', async (req, res) => {
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
 
-    /* If no user found, Respond with  */
+    /* If no user found, Respond with 401 Unauthorized */
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
+    /* If  user found, Respond with 401 Unauthorized */
     const user = rows[0];
     req.session.user_id = user.userId;
     req.session.role = user.role;
