@@ -131,9 +131,7 @@ router.get('/dogs', async (req, res) => {
     if (rows.length !== 0) {
       dogsList = rows;
     }
-
     return res.status(200).json(dogsList);
-
 
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
