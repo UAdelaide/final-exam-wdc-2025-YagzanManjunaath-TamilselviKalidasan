@@ -108,6 +108,12 @@
             const json = await login_response.json();
             const role = json.user.role;
 
+            if(role === 'owner'){
+
+            }else{
+              
+            }
+
 
           } catch (err) {
             console.log(`ERROR : Error Logging in to the Service ${err}`);
