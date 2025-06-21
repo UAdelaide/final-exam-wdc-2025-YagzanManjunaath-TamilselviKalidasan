@@ -66,12 +66,13 @@
       <h1> Login </h1>
       <form class="login-form" role="form" aria-labelledby="login-form-title" aria-describedby="login-error">
         <label for="username">Username :</label>
-        <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username" aria-required="true">
+        <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username"
+          aria-required="true">
         <label for="password">Password :</label>
         <input type="password" id="password" @input="isLoginError=false;" placeholder="Enter Password.."
           v-model="password" aria-required="true">
 
-        <button type="button" class="login-btn" @click="login"  aria-label="Log in to your account">Login</button>
+        <button type="button" class="login-btn" @click="login" aria-label="Log in to your account">Login</button>
         <p v-if="isLoginError" class="login-error" role="alert"> Login Failed. Kindly try again </p>
       </form>
     </div>
@@ -90,7 +91,7 @@
           password: "",
           role: "",
           isLoginError: false,
-          dogsList : []
+          dogsList: []
         };
       },
       methods: {
@@ -98,7 +99,7 @@
           try {
 
             const login_url = "/api/users/login";
-            const requestBody = { username: this.username, password: this.password};
+            const requestBody = { username: this.username, password: this.password };
 
             /* Make an API call to Login endpoint with Header and body populated */
             const login_response = await fetch(login_url, {
@@ -133,8 +134,38 @@
 
         },
 
-        async loadDogsFromDb(){
-          
+        async loadDogsFromDb() {
+          try {
+
+            const login_url = "/api/users/login"
+
+            /* Make an API call to Get dogs */
+            const login_response = await fetch(login_url, {
+              method: "GET",
+
+            });
+            if (!login_response.ok) {
+              throw new Error(`Response status: ${login_response.status}`);
+            }
+
+            /* If successful, extarct user information */
+            const json = await login_response.json();
+            const role = json.user.role;
+
+            /* Based on role, navigate to corresponding dashboard */
+            if (role === 'owner') {
+              window.location.replace('/owner-dashboard.html');
+            } else if (role === 'walker') {
+              window.location.replace('/walker-dashboard.html');
+            } else {
+              throw new Error(`Invalid role: ${role}`);
+            }
+
+          } catch (err) {
+            this.isLoginError = true;
+            console.log(`ERROR : Error Logging in to the Service ${err}`);
+
+          }
         }
       },
     }).mount('#app');
