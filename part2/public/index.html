@@ -95,6 +95,7 @@
             const login_url = "/api/users/login";
             const requestBody = { username: username.value, password: password.value };
 
+            /* Make an API call to Login endpoint */
             const login_response = await fetch(login_url, {
               method: "POST",
               headers: {
