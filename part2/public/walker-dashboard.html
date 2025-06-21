@@ -95,6 +95,18 @@
             message.value = '';
           }
         }
+        const logout = async () => {
+          try {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('connect.sid');
+            window.location.replace('/index.html');
+
+          } catch (err) {
+            isLoginError.value = true;
+            console.log(`ERROR : Error Logging in to the Service ${err}`);
+          }
+
+        };
 
         onMounted(() => {
           loadWalkRequests();
@@ -104,7 +116,8 @@
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          logout
         };
       }
     }).mount('#app');
