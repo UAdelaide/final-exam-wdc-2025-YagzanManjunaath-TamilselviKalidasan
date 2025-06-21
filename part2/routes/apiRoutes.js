@@ -21,17 +21,16 @@ router.get('/dogs', async function (req, res, next) {
                 `;
 
         const [result] = await db.query(fetch_dogs_and_owner_name);
-        let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
             If no dogs are in the database , return 200 wth empty array
         */
-        if (dogs_with_owner_name_result && dogs_with_owner_name_result.length === 0) {
+        if (result && result.length === 0) {
             return res.status(200).json([]);
         }
         /*
            If found, return list as Json with status code 200
         */
-        return res.status(200).json(dogs_with_owner_name_result);
+        return res.status(200).json(result);
 
     } catch (err) {
         const error_message = `Error occurred during fetch dogs request : ${err.message}`;
