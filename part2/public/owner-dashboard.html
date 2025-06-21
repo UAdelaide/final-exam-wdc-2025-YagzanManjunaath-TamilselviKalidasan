@@ -138,7 +138,7 @@
         const logout = async () => {
           try {
             const login_url = "/api/users/logout";
-            const requestBody = { username: username.value, password: password.value };
+          
 
             const login_response = await fetch(login_url, {
               method: "POST",
