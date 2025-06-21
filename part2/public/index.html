@@ -140,8 +140,8 @@
               throw new Error(`Response status: ${restore_session_response.status}`);
             }
 
-            const json = await restore_session_response.json();
-            const role = json.user.role;
+            const user = await restore_session_response.json();
+            const role = user.role;
 
             if (role === 'owner') {
               window.location.replace('/owner-dashboard.html');
