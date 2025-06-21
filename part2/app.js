@@ -24,12 +24,6 @@ app.use(session({
   }
 }));
 
-app.use('/users/*', (req, res, next) => {
-  if (req.session.user && req.session.isAuthenticated) {
-    return next();
-  }
-  res.status(403).send("ERROR:  NOT AUTHENTICATED");
-});
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
