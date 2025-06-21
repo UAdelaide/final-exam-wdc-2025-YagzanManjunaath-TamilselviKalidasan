@@ -112,20 +112,13 @@ router.post('/logout', async (req, res) => {
 });
 
 
-// GET method to handle Login
+// GET method to fetch all dogs of users
 router.get('/dogs', async (req, res) => {
 
-  /*  Validate based on rules in validation array in second param,
-   return 400 if any validation fails */
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
 
-  const { username, password } = req.body;
 
   try {
-    /* Fetch the user from DB matching the username and password_hash */
+    /* Fetch the dogs from DB usin */
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
