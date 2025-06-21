@@ -168,6 +168,31 @@
           }
 
         };
+                const logout = async () => {
+          try {
+            const logout_url = "/api/users/logout";
+
+            /* Make an API call to Logout endpoint */
+            const logout_response = await fetch(logout_url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+
+            if (!logout_response.ok) {
+              throw new Error(`Response status: ${logout_response.status}`);
+            }
+            /* Reroute to Login page if logout successful */
+            window.location.replace('/index.html');
+
+          } catch (err) {
+
+            console.log(`ERROR : Error Logging out of the Service ${err}`);
+          }
+
+        };
+
 
         onMounted(() => {
           loadWalks();
