@@ -130,16 +130,11 @@
           const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
           const sessionId = localStorage.getItem('connect.sid');
           if (isLoggedIn && sessionId) {
-            const login_url = "/api/users/me";
-            const requestBody = { username: username.value, password: password.value };
+            const restore_session_url = "/api/users/me";
+
 
             const login_response = await fetch(login_url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(requestBody),
-            });
+              method: "GET",});
             if (!login_response.ok) {
               throw new Error(`Response status: ${login_response.status}`);
             }
