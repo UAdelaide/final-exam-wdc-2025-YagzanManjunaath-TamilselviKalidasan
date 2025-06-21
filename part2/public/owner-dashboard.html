@@ -173,15 +173,14 @@
             const fetchDogsUrl = "/api/users/dogs";
 
             /* Make an API call to Logout endpoint */
-            const fetch_Dogs_response = await fetch(fetchDogsUrl, {
+            const fetchDogsResponse = await fetch(fetchDogsUrl, {
               method: "GET",
             });
 
-            if (!fetch_Dogs_response.ok) {
-              throw new Error(`Response status: ${fetch_Dogs_response.status}`);
+            if (!fetchDogsResponse.ok) {
+              throw new Error(`Response status: ${fetchDogsResponse.status}`);
             }
-            /* Reroute to Login page if logout successful */
-            window.location.replace('/index.html');
+            /* Populate dogs in the Vue object */
 
           } catch (err) {
 
