@@ -84,6 +84,7 @@
             user.value = json.user_id;
           } catch (err) {
             error.value = err.message;
+            throw new Error(err);
           }
         }
 
