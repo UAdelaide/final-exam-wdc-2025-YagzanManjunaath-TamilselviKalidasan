@@ -127,34 +127,7 @@
           }
 
         },
-        async checkIfUserLoggedIn() {
-          const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-          console.log(isLoggedIn);
-
-
-          if (isLoggedIn) {
-            const restore_session_url = "/api/users/me";
-            const restore_session_response = await fetch(restore_session_url, {
-              method: "GET",
-            });
-            if (!restore_session_response.ok) {
-              throw new Error(`Response status: ${restore_session_response.status}`);
-            }
-
-            const user = await restore_session_response.json();
-            const role = user.role;
-
-            if (role === 'owner') {
-              window.location.replace('/owner-dashboard.html');
-            } else if (role === 'walker') {
-              window.location.replace('/walker-dashboard.html');
-            } else {
-              throw new Error(`Invalid role: ${role}`);
-            }
-          }
-
-
+        
 
         }
       }, mounted() {
