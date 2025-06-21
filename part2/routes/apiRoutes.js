@@ -1,12 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { query } = require('../data/mysql_config');
-const {
-    fetch_dogs_and_owner_name,
-    fetch_open_walk_requests,
-    fetch_walker_summary
-
-} = require('../data/queries');
+const db = require('../models/db');
 
 /* GET All Dogs information */
 router.get('/dogs', async function (req, res, next) {
