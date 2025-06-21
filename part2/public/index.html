@@ -176,10 +176,10 @@
         async loadDogsFromDb() {
           try {
 
-            const login_url = "/api/dogs";
+            const dogs_url = "/api/dogs";
 
             /* Make an API call to Get dogs */
-            const dogs_response = await fetch(login_url, {
+            const dogs_response = await fetch(dogs_url, {
               method: "GET",
 
             });
