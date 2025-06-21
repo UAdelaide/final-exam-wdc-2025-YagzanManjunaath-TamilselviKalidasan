@@ -86,7 +86,7 @@
       methods: {
         async login() {
           try {
-            const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
+            const data = await fetch('localhost:8080/api/users/login').then((response) => response.json());
 
 
           } catch (err) {
