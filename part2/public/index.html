@@ -50,7 +50,8 @@
       border-radius: 0.375rem;
       margin: 10px;
     }
-    .login-error{
+
+    .login-error {
       color: red;
     }
   </style>
@@ -63,11 +64,9 @@
 
     <div class="login-form-container">
       <h1> Login </h1>
-      <form action="" class="login-form" role="form"
-    aria-labelledby="login-form-title"
-    aria-describedby="login-error">
+      <form class="login-form" role="form" aria-labelledby="login-form-title" aria-describedby="login-error">
         <label for="username">Username :</label>
-        <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username">
+        <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username" aria-required="true">
         <label for="password">Password :</label>
         <input type="password" id="password" @input="isLoginError=false;" placeholder="Enter Password.."
           v-model="password">
