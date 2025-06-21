@@ -122,9 +122,8 @@ router.get('/dogs', async (req, res) => {
 
 
     const [rows] = await db.query(`
-      SELECT user_id, username, role FROM Users
-      WHERE username = ? AND password_hash = ?
-    `, [username, password]);
+      select Dogs.name,Dogs.dog from Dogs where Dogs.owner_id = ?;
+    `, [user_id]);
 
     /* If no user found, Respond with 401 Unauthorized */
     if (rows.length === 0) {
