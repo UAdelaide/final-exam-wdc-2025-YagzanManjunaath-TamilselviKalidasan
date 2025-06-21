@@ -255,9 +255,5 @@ app.use('/api/', apiRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var port = 8081;
 
-app.listen(port, function () {
-  console.log('Part 1 app listening on port ' + port);
-});
 module.exports = app;
