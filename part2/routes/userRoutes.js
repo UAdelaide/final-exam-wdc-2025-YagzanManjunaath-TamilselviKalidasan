@@ -127,10 +127,12 @@ router.get('/dogs', async (req, res) => {
       select Dogs.dog_id,Dogs.name from Dogs where Dogs.owner_id = ?;
     `, [user_id]);
 
-    /* If no dogs found, Respond with 401 Unauthorized */
+    /* If no dogs found, Respond with empty array object */
     if (rows.length === 0) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      ;
     }
+
+    return res.status(200).json([])
 
     /*
       If  user found, Populate the User information such as user_id and role
