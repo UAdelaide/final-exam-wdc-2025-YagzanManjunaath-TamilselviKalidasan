@@ -126,25 +126,15 @@ router.get('/dogs', async (req, res) => {
     const [rows] = await db.query(`
       select Dogs.dog_id,Dogs.name from Dogs where Dogs.owner_id = ?;
     `, [user_id]);
-    const dogsList = [];
+    let dogsList = [];
     /* If no dogs found, Respond with empty array object */
     if (rows.length !== 0) {
-      dogsList =rows ;
+      dogsList = rows;
     }
 
-    return res.status(200).json([]);
+    return res.status(200).json(dogsList);
 
-    /*
-      If  user found, Populate the User information such as user_id and role
-      in Request.session object
-    */
-    const user = rows[0];
-    req.session.user = user;
-    req.session.role = user.role;
-    req.session.isAuthenticated = true;
 
-    /* Respond with User details and 200 Success code */
-    res.json({ message: 'Login successful', user: user });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
   }
