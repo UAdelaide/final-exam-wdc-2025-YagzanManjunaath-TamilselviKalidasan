@@ -154,20 +154,11 @@
 
             for (dog in dogs) {
               const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
-
-
               dog.image = data.message;
-
             }
 
-            /* Based on role, navigate to corresponding dashboard */
-            if (role === 'owner') {
-              window.location.replace('/owner-dashboard.html');
-            } else if (role === 'walker') {
-              window.location.replace('/walker-dashboard.html');
-            } else {
-              throw new Error(`Invalid role: ${role}`);
-            }
+            this.dogsList = dogs;
+            
 
           } catch (err) {
             this.isLoginError = true;
