@@ -119,15 +119,15 @@ router.get('/dogs', async (req, res) => {
 
   try {
     /* Fetch the dogs from DB using user id from the session */
-    if(!req.session.user && !req.session.user.user_id){
+    if (!req.session.user && !req.session.user.user_id) {
       return res.status(500).json({ error: 'Invalid user id' });
     }
-    req.session.user = user.user_id;
+    const user_id = req.session.user.user_id;
     const [rows] = await db.query(`
       select Dogs.dog_id,Dogs.name from Dogs where Dogs.owner_id = ?;
     `, [user_id]);
 
-    /* If no user found, Respond with 401 Unauthorized */
+    /* If no dogs found, Respond with 401 Unauthorized */
     if (rows.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
