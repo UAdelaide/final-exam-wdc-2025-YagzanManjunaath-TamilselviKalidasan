@@ -107,10 +107,11 @@
               throw new Error(`Response status: ${login_response.status}`);
             }
 
-            /* Make an API call to Login endpoint with Header and body populated */
+            /* If successful, extarct user information */
             const json = await login_response.json();
             const role = json.user.role;
 
+            /* Based on role, navigate to  */
             if (role === 'owner') {
               window.location.replace('/owner-dashboard.html');
             } else if (role === 'walker') {
@@ -118,8 +119,6 @@
             } else {
               throw new Error(`Invalid role: ${role}`);
             }
-
-            localStorage.setItem('isLoggedIn', 'true');
 
 
           } catch (err) {
