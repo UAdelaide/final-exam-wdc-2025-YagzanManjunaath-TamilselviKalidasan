@@ -118,7 +118,7 @@ router.get('/dogs', async (req, res) => {
   try {
     /* Fetch the dogs from DB using user id from the session */
     if (!req.session.user && !req.session.user.user_id) {
-      return res.status(500).json({ error: 'Invalid user id' });
+      return res.status(401).json({ error: 'Invalid user id' });
     }
     const user_id = req.session.user.user_id;
     const [rows] = await db.query(`
