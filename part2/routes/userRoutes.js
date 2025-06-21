@@ -67,6 +67,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
+  try{
   /* Destroy the session stored in the server side */
   req.session.destroy((err) => {
     if (err) {
@@ -79,6 +80,7 @@ router.post('/logout', async (req, res) => {
       path: '/',
       httpOnly: true
     });
+    res.json({ message: 'Login successful', user: user });
   });
 });
 module.exports = router;
