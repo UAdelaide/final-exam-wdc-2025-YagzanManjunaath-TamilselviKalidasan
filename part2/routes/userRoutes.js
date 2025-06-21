@@ -67,20 +67,23 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
-  try{
-  /* Destroy the session stored in the server side */
-  req.session.destroy((err) => {
-    if (err) {
-      console.error(`ERROR : Error during logout - ${err}`);
-      return res.status(500).json({ error: 'Logout failed' });
-    }
+  try {
+    /* Destroy the session stored in the server side */
+    req.session.destroy((err) => {
+      if (err) {
+        console.error(`ERROR : Error during logout - ${err}`);
+        return res.status(500).json({ error: 'Logout failed' });
+      }
 
-    /* If session destroyed in server, Clear Client side session cookie */
-    res.clearCookie('connect.sid', {
-      path: '/',
-      httpOnly: true
+      /* If session destroyed in server, Clear Client side session cookie */
+      res.clearCookie('connect.sid', {
+        path: '/',
+        httpOnly: true
+      });
+      res.json({ message: 'Login successful', user: user });
     });
-    res.json({ message: 'Login successful', user: user });
-  });
+  } catch (error) {
+    res.status(500).json({ error: 'Logout failed' });
+  }
 });
 module.exports = router;
