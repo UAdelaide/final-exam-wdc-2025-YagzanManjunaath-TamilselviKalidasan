@@ -115,8 +115,6 @@ router.post('/logout', async (req, res) => {
 // GET method to fetch all dogs of users
 router.get('/dogs', async (req, res) => {
 
-
-
   try {
     /* Fetch the dogs from DB using user id from the session */
     if (!req.session.user && !req.session.user.user_id) {
@@ -134,7 +132,7 @@ router.get('/dogs', async (req, res) => {
     return res.status(200).json(dogsList);
 
   } catch (error) {
-    res.status(500).json({ error: 'Login failed' });
+    res.status(500).json({ error: 'Fetching Dogs for user failed' });
   }
 });
 module.exports = router;
