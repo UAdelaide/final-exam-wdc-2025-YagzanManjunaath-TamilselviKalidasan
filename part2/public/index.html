@@ -137,14 +137,14 @@
         async loadDogsFromDb() {
           try {
 
-            const login_url = "/api/users/login"
+            const login_url = "/api/dogs";
 
             /* Make an API call to Get dogs */
-            const login_response = await fetch(login_url, {
+            const dogs_response = await fetch(login_url, {
               method: "GET",
 
             });
-            if (!login_response.ok) {
+            if (!dogs_response.ok) {
               throw new Error(`Response status: ${login_response.status}`);
             }
 
