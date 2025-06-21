@@ -119,7 +119,7 @@ router.get('/dogs', async (req, res) => {
 
   try {
     /* Fetch the dogs from DB using user id from the session */
-
+    if(!req.session.user && !req.session.user)
     req.session.user = user.user_id;
     const [rows] = await db.query(`
       select Dogs.dog_id,Dogs.name from Dogs where Dogs.owner_id = ?;
