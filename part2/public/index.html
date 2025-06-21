@@ -90,7 +90,7 @@
             const data = await fetch('localhost:8080/api/users/login').then((response) => response.json());
 
             const login_url = "http://localhost:8080/api/users/login";
-            const requestBody = {username: username,password: password };
+            const requestBody = { username: username, password: password };
             try {
 
               const response = await fetch(url, {
@@ -103,8 +103,6 @@
 
               const json = await response.json();
               console.log(json);
-            } catch (error) {
-              console.error(error.message);
             }
           } catch (err) {
             console.log("ERROR : Error Logging in to the Service");
