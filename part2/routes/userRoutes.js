@@ -110,4 +110,45 @@ router.post('/logout', async (req, res) => {
     res.status(500).json({ error: 'Logout failed' });
   }
 });
+
+
+// GET method to handle Login
+router.get('/dogs', async (req, res) => {
+
+  /*  Validate based on rules in validation array in second param,
+   return 400 if any validation fails */
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { username, password } = req.body;
+
+  try {
+    /* Fetch the user from DB matching the username and password_hash */
+    const [rows] = await db.query(`
+      SELECT user_id, username, role FROM Users
+      WHERE username = ? AND password_hash = ?
+    `, [username, password]);
+
+    /* If no user found, Respond with 401 Unauthorized */
+    if (rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    /*
+      If  user found, Populate the User information such as user_id and role
+      in Request.session object
+    */
+    const user = rows[0];
+    req.session.user = user;
+    req.session.role = user.role;
+    req.session.isAuthenticated = true;
+
+    /* Respond with User details and 200 Success code */
+    res.json({ message: 'Login successful', user: user });
+  } catch (error) {
+    res.status(500).json({ error: 'Login failed' });
+  }
+});
 module.exports = router;
