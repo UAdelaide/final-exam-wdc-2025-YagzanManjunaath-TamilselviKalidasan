@@ -13,7 +13,7 @@ const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 app.use(session({
-  secret: "",
+  secret: "superSecret@1234",
   resave: false,
   saveUninitialized: false,
   cookie: {
