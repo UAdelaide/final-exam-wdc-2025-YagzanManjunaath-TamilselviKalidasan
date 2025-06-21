@@ -116,7 +116,7 @@
             } else {
               throw new Error(`Invalid role: ${role}`);
             }
-            
+
 
 
           } catch (err) {
@@ -125,7 +125,9 @@
           }
 
         },
-      }
+      }, onMounted(() => {
+      loadWalks();
+    });
     }).mount('#app');
   </script>
 
