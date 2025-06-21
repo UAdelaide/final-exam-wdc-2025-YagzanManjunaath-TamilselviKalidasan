@@ -43,7 +43,7 @@
             <label for="dogSelect" class="form-label">Select your Dog</label>
             <select id="dogSelect" v-model="form.dog_id" class="form-select" required>
               <option value="" disabled>Select a dog…</option>
-              <option v-for="dog in dogs" :key="dog.id" :value="dog.id">
+              <option v-for="dog in userDogs" :key="dog.id" :value="dog.id">
                 {{ dog.name }}
               </option>
             </select>
@@ -101,7 +101,8 @@
           dog_id: '',
           requested_time: '',
           duration_minutes: '',
-          location: ''
+          location: '',
+          userDogs=[]
         });
 
         const walks = ref([]);
