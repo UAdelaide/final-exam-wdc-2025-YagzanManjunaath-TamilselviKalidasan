@@ -66,6 +66,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// POST method to handle Logout
 router.post('/logout', async (req, res) => {
   try {
     /* Destroy the session stored in the server side */
