@@ -73,7 +73,8 @@ router.post('/logout',async (req,res) =>{
       return res.status(500).json({ error: 'Logout failed' });
     }
     res.clearCookie('connect.sid',{
-      
+      path:'/',
+      httpOnly:true
     })
   });
 });
