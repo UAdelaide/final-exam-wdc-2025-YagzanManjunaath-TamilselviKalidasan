@@ -64,7 +64,8 @@
         <label for="username">Username :</label>
         <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username">
         <label for="password">Password :</label>
-        <input type="password" id="password" @input="isLoginError=false;"  placeholder="Enter Password.." v-model="password">
+        <input type="password" id="password" @input="isLoginError=false;" placeholder="Enter Password.."
+          v-model="password">
 
         <button type="button" class="login-btn" @click="login">Login</button>
         <p v-if="isLoginError"> Login Failed. Kindly try again </p>
@@ -84,7 +85,7 @@
           username: "",
           password: "",
           role: "",
-          isLoginError :false
+          isLoginError: false
         };
       },
       methods: {
@@ -108,10 +109,10 @@
             const json = await login_response.json();
             const role = json.user.role;
 
-            if(role === 'owner'){
-
-            }else{
-               window.location.replace('/some-page.html')
+            if (role === 'owner') {
+              window.location.replace('/owner-dashboard.html');
+            } else {
+              window.location.replace('/owner-dashboard.html');
             }
 
 
