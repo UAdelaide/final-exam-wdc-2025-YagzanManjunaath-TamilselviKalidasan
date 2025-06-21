@@ -78,27 +78,29 @@
     </div>
 
 
-    <h1 class="mb-4 text-primary">All Registered Dogs</h1>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Dog Name</th>
-          <th>Size</th>
-          <th>Owner</th>
-          <th>Image</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(dog, i) in dogs" :key="i">
-          <td>{{ dog.dog_name }}</td>
-          <td>{{ dog.size }}</td>
-          <td>{{ dog.owner_username }}</td>
-          <td>
-            <img :src="dog.image" alt="photo of {{ dog.dog_name }}" width="80" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div v-if="us">
+      <h1 class="mb-4 text-primary">All Registered Dogs</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Dog Name</th>
+            <th>Size</th>
+            <th>Owner</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(dog, i) in userDogs" :key="i">
+            <td>{{ dog.dog_name }}</td>
+            <td>{{ dog.size }}</td>
+            <td>{{ dog.owner_username }}</td>
+            <td>
+              <img :src="dog.image" alt="photo of {{ dog.dog_name }}" width="80" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <script>
