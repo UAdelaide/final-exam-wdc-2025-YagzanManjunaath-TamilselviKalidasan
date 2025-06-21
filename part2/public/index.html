@@ -71,8 +71,8 @@
         <input type="password" id="password" @input="isLoginError=false;" placeholder="Enter Password.."
           v-model="password" aria-required="true">
 
-        <button type="button" class="login-btn" @click="login">Login</button>
-        <p v-if="isLoginError" class="login-error"> Login Failed. Kindly try again </p>
+        <button type="button" class="login-btn" @click="login"  aria-label="Log in to your account">Login</button>
+        <p v-if="isLoginError" class="login-error" role="alert"> Login Failed. Kindly try again </p>
       </form>
     </div>
     <!--
