@@ -67,6 +67,7 @@
         <input type="password" id="password" placeholder="Enter Password.." v-model="password">
 
         <button type="button" class="login-btn" @click="login">Login</button>
+        <p v-if="isLoginError"> Login Failed. Kindly try again </p>
       </form>
     </div>
     <!--
