@@ -175,13 +175,10 @@
             /* Make an API call to Logout endpoint */
             const fetch_Dogs_response = await fetch(fetchDogsUrl, {
               method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-              },
             });
 
-            if (!logout_response.ok) {
-              throw new Error(`Response status: ${logout_response.status}`);
+            if (!fetch_Dogs_response.ok) {
+              throw new Error(`Response status: ${fetch_Dogs_response.status}`);
             }
             /* Reroute to Login page if logout successful */
             window.location.replace('/index.html');
