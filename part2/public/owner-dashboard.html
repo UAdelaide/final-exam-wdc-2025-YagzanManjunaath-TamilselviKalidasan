@@ -134,6 +134,42 @@
             message.value = '';
           }
         }
+          async login() {
+          try {
+
+            const login_url = "/api/users/login";
+            const requestBody = { username: username.value, password: password.value };
+
+            const login_response = await fetch(login_url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(requestBody),
+            });
+            if (!login_response.ok) {
+              throw new Error(`Response status: ${login_response.status}`);
+            }
+
+            const json = await login_response.json();
+            const role = json.user.role;
+
+            if (role === 'owner') {
+              window.location.replace('/owner-dashboard.html');
+            } else if (role === 'walker') {
+              window.location.replace('/walker-dashboard.html');
+            } else {
+              throw new Error(`Invalid role: ${role}`);
+            }
+
+
+
+          } catch (err) {
+            isLoginError.value = true;
+            console.log(`ERROR : Error Logging in to the Service ${err}`);
+          }
+
+        }
 
         onMounted(() => {
           loadWalks();
