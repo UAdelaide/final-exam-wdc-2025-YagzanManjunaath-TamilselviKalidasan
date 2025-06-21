@@ -20,7 +20,7 @@ router.get('/dogs', async function (req, res, next) {
                     inner join Users u on d.owner_id = u.user_id
                 `;
 
-        const [result] = await db.query(, [dog_id, requested_time, duration_minutes, location]);
+        const [result] = await db.query(fetch_dogs_and_owner_name, [dog_id, requested_time, duration_minutes, location]);
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
             If no dogs are in the database , return 200 wth empty array
