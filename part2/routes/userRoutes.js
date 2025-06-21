@@ -60,6 +60,7 @@ router.post('/login', async (req, res) => {
     req.session.role = user.role;
     req.session.isAuthenticated = true;
 
+    /* Respond with User details and 200 Success code */
     res.json({ message: 'Login successful', user: user });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
@@ -81,6 +82,8 @@ router.post('/logout', async (req, res) => {
         path: '/',
         httpOnly: true
       });
+
+      /* Respond with  200 Success code */
       res.json({ message: 'Logout successful' });
     });
   } catch (error) {
