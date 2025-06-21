@@ -126,8 +126,11 @@
 
         },
         async checkIfUserLoggedIn(){
-           isLoggedIn.value = localStorage.getItem('isLoggedIn') === 'true';
-           
+           const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+           const sessionId = localStorage.getItem('isLoggedIn') === 'true'
+
+
+
         }
       }, mounted() {
 
