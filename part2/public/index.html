@@ -152,13 +152,14 @@
             const dogs = await dogs_response.json();
 
 
+            /* Add random dog image to the dog */
             for (dog in dogs) {
               const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
               dog.image = data.message;
             }
 
             this.dogsList = dogs;
-            
+
 
           } catch (err) {
             this.isLoginError = true;
