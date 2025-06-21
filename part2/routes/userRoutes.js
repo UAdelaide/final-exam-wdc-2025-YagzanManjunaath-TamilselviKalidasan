@@ -118,7 +118,9 @@ router.get('/dogs', async (req, res) => {
 
 
   try {
-    /* Fetch the dogs from DB usin */
+    /* Fetch the dogs from DB using user id from the session */
+
+    
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
