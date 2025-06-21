@@ -66,16 +66,16 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout',async (req,res) =>{
+router.post('/logout', async (req, res) => {
   req.session.destroy((err) => {
-    if(err){
+    if (err) {
       console.error(`ERROR : Error during logout - ${err}`);
       return res.status(500).json({ error: 'Logout failed' });
     }
-    res.clearCookie('connect.sid',{
-      path:'/',
-      httpOnly:true
-    })
+    res.clearCookie('connect.sid', {
+      path: '/',
+      httpOnly: true
+    });
   });
 });
 module.exports = router;
