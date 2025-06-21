@@ -181,6 +181,8 @@
               throw new Error(`Response status: ${fetchDogsResponse.status}`);
             }
             /* Populate dogs in the Vue recative object */
+          const json = await login_response.json();
+            const role = json.user.role;
             this.userDogs = fetchDogsResponse.
           } catch (err) {
 
