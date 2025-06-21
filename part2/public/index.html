@@ -95,8 +95,8 @@
               method: "POST",
               body: JSON.stringify(requestBody),
             });
-            if (!response.ok) {
-              throw new Error(`Response status: ${response.status}`);
+            if (!login_response.ok) {
+              throw new Error(`Response status: ${login_response.status}`);
             }
 
             const json = await response.json();
