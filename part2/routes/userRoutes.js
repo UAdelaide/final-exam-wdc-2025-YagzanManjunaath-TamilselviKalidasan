@@ -50,11 +50,12 @@ body('password')
 
 ], async (req, res) => {
 
-  
-   const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+  /*  Validate based on rules in validation array in second param,
+   return 400 if any validation fails */
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   const { username, password } = req.body;
 
