@@ -37,50 +37,50 @@ router.get('/me', (req, res) => {
 });
 
 // POST method to handle Login
-router.post('/login',  body('username')
-      .trim()                                  // remove leading/trailing whitespace
-      .isLength({ min: 3, max: 30 })           // enforce a reasonable length
-      .withMessage('Username must be 3–30 chars')
-      .escape(),                               // HTML-encode <, >, &, " etc.
+router.post('/login', body('username')
+  .trim()
+  .isLength({ min: 3, max: 30 })
+  .withMessage('Username must be 3–30 chars')
+  .escape(),
 
-    body('password')
-      .trim()
-      .isLength({ min: 8, max: 100 })          // enforce password length
-      .withMessage('Password must be 8–100 chars')
-      // *don’t escape password*, since you’ll hash/compare it server-side
-  ],async (req, res) => {
-  const { username, password } = req.body;
+  body('password')
+    .trim()
+    .isLength({ min: 5, max: 100 })
+    .withMessage('Password must be 5–100 chars')
 
-  try {
-    /* Fetch the user from DB matching the username and password_hash */
-    const [rows] = await db.query(`
+  ], async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+      /* Fetch the user from DB matching the username and password_hash */
+      const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
 
-    /* If no user found, Respond with 401 Unauthorized */
-    if (rows.length === 0) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      /* If no user found, Respond with 401 Unauthorized */
+      if (rows.length === 0) {
+        return res.status(401).json({ error: 'Invalid credentials' });
+      }
+
+      /*
+        If  user found, Populate the User information such as user_id and role
+        in Request.session object
+      */
+      const user = rows[0];
+      req.session.user = user;
+      req.session.role = user.role;
+      req.session.isAuthenticated = true;
+
+      /* Respond with User details and 200 Success code */
+      res.json({ message: 'Login successful', user: user });
+    } catch (error) {
+      res.status(500).json({ error: 'Login failed' });
     }
-
-    /*
-      If  user found, Populate the User information such as user_id and role
-      in Request.session object
-    */
-    const user = rows[0];
-    req.session.user = user;
-    req.session.role = user.role;
-    req.session.isAuthenticated = true;
-
-    /* Respond with User details and 200 Success code */
-    res.json({ message: 'Login successful', user: user });
-  } catch (error) {
-    res.status(500).json({ error: 'Login failed' });
-  }
-});
+  });
 
 // POST method to handle Logout
-router.post('/logout',async (req, res) => {
+router.post('/logout', async (req, res) => {
   try {
     /* Destroy the session stored in the server side */
     req.session.destroy((err) => {
