@@ -69,7 +69,7 @@
         <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username" aria-required="true">
         <label for="password">Password :</label>
         <input type="password" id="password" @input="isLoginError=false;" placeholder="Enter Password.."
-          v-model="password">
+          v-model="password" aria-required="true">
 
         <button type="button" class="login-btn" @click="login">Login</button>
         <p v-if="isLoginError" class="login-error"> Login Failed. Kindly try again </p>
