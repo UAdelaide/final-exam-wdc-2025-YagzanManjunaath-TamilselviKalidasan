@@ -122,7 +122,7 @@ router.get('/dogs', async (req, res) => {
 
 
     const [rows] = await db.query(`
-      select Dogs.name,Dogs.dog from Dogs where Dogs.owner_id = ?;
+      select Dogs.dog ,Dogs.name,from Dogs where Dogs.owner_id = ?;
     `, [user_id]);
 
     /* If no user found, Respond with 401 Unauthorized */
