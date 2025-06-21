@@ -168,7 +168,7 @@
           }
 
         };
-          const loadDogsOfUser = async () => {
+        const loadDogsOfUser = async () => {
           try {
             const fetchDogsUrl = "/api/users/dogs";
 
@@ -181,9 +181,8 @@
               throw new Error(`Response status: ${fetchDogsResponse.status}`);
             }
             /* Populate dogs in the Vue recative object */
-          const json = await login_response.json();
-            const role = json.user.role;
-            this.userDogs = fetchDogsResponse.
+            const dogsAsJson = await fetchDogsResponse.json();
+            this.userDogs = dogsAsJson.
           } catch (err) {
 
             console.log(`ERROR : Error Logging out of the Service ${err}`);
