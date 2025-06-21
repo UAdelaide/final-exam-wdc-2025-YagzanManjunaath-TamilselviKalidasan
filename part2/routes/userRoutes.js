@@ -73,6 +73,8 @@ router.post('/logout', async (req, res) => {
       console.error(`ERROR : Error during logout - ${err}`);
       return res.status(500).json({ error: 'Logout failed' });
     }
+
+    /* If session destroyed in server, Clear Client side session cookie */
     res.clearCookie('connect.sid', {
       path: '/',
       httpOnly: true
