@@ -146,11 +146,9 @@
                 "Content-Type": "application/json",
               },
             });
-            if (!login_response.ok) {
-              throw new Error(`Response status: ${login_response.status}`);
+            if (!logout_response.ok) {
+              throw new Error(`Response status: ${logout_response.status}`);
             }
-
-            const json = await login_response.json();
             window.location.replace('/index.html');
 
           } catch (err) {
