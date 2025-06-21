@@ -49,6 +49,12 @@ body('password')
   .withMessage('Password must be 5–100 chars')
 
 ], async (req, res) => {
+
+   const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
   const { username, password } = req.body;
 
   try {
