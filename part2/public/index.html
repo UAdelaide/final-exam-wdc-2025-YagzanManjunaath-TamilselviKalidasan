@@ -63,7 +63,9 @@
 
     <div class="login-form-container">
       <h1> Login </h1>
-      <form action="" class="login-form">
+      <form action="" class="login-form" role="form"
+    aria-labelledby="login-form-title"
+    aria-describedby="login-error">
         <label for="username">Username :</label>
         <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username">
         <label for="password">Password :</label>
