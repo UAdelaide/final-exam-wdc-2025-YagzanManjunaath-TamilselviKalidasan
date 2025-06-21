@@ -90,7 +90,10 @@
             const data = await fetch('localhost:8080/api/users/login').then((response) => response.json());
 
             const login_url = "http://localhost:8080/api/users/login";
-            const requestBody = { username: username, password: password };
+            const requestBody = {
+                                  username: username,
+              password: password
+                                                      };
             try {
 
               const response = await fetch(url, {
