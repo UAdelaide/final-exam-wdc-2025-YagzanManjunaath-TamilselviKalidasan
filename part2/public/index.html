@@ -54,16 +54,16 @@
     .login-error {
       color: red;
     }
-    .table{
+
+    .table {
       text-align: center;
     }
-    .table-bordered{
 
-    }
+
     tbody tr:nth-child(odd) {
-  background-color: #4C8BF5;
-  color: #fff;
-}
+      background-color: #4C8BF5;
+      color: #fff;
+    }
   </style>
 </head>
 
@@ -90,7 +90,7 @@
 
     <div v-if="dogsList.length>0">
       <h1 class="mb-4 text-primary">All Registered Dogs</h1>
-      <table class="table table-bordered">
+      <table class="table">
         <thead>
           <tr>
             <th>Dog Name</th>
