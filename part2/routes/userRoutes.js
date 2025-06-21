@@ -120,9 +120,9 @@ router.get('/dogs', async (req, res) => {
   try {
     /* Fetch the dogs from DB using user id from the session */
 
-
+    req.session.user = user.user_id;
     const [rows] = await db.query(`
-      select Dogs.dog ,Dogs.name,from Dogs where Dogs.owner_id = ?;
+      select Dogs.dog_id,Dogs.name from Dogs where Dogs.owner_id = ?;
     `, [user_id]);
 
     /* If no user found, Respond with 401 Unauthorized */
