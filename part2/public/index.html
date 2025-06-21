@@ -26,7 +26,8 @@
       margin-bottom: 2rem;
       border-radius: .3rem;
     }
-    .login-form-container h1{
+
+    .login-form-container h1 {
       color: #0d6efd;
       margin: auto;
       width: 100%;
@@ -68,7 +69,7 @@
         <button type="button" class="login-btn">Login</button>
       </form>
     </div>
-<!--
+    <!--
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a> -->
   </div>
@@ -88,10 +89,22 @@
           try {
             const data = await fetch('localhost:8080/api/users/login').then((response) => response.json());
 
+            const url = "https://example.org/products.json";
+            try {
+              const response = await fetch(url);
+              if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+              }
 
+              const json = await response.json();
+              console.log(json);
+            } catch (error) {
+              console.error(error.message);
+            }
           } catch (err) {
             console.log("ERROR : Error Logging in to the Service");
           }
+
         },
       }
     }).mount('#app');
