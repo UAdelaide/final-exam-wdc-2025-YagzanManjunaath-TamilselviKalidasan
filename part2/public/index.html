@@ -106,8 +106,8 @@
             }
 
             const json = await login_response.json();
-            console.log(json.user.username);
-            alert(json)
+            const role = json.user.role;
+
 
           } catch (err) {
             console.log(`ERROR : Error Logging in to the Service ${err}`);
