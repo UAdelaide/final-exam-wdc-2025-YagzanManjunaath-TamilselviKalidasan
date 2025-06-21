@@ -145,12 +145,12 @@
 
             });
             if (!dogs_response.ok) {
-              throw new Error(`Response status: ${login_response.status}`);
+              throw new Error(`Response status: ${dogs_response.status}`);
             }
 
             /* If successful, extarct user information */
-            const json = await login_response.json();
-            const role = json.user.role;
+            const dogs = await dogs_response.json();
+            
 
             /* Based on role, navigate to corresponding dashboard */
             if (role === 'owner') {
