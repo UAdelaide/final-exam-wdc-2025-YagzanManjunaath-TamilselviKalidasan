@@ -106,8 +106,7 @@
         });
 
         const walks = ref([]);
-        const walks = ref([]);
-        userDogs
+        const userDogs = ref([]);
         const message = ref('');
         const error = ref('');
 
@@ -172,6 +171,7 @@
 
         onMounted(() => {
           loadWalks();
+          loadDogsOfUser();
         });
 
         return {
