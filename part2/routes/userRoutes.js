@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
+const { body, validationResult } = require('express-validator');
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
@@ -68,7 +69,20 @@ router.post('/login', async (req, res) => {
 });
 
 // POST method to handle Logout
-router.post('/logout', async (req, res) => {
+router.post('/logout',
+      body('username')
+      .trim()                                  // remove leading/trailing whitespace
+      .isLength({ min: 3, max: 30 })           // enforce a reasonable length
+      .withMessage('Username must be 3–30 chars')
+      .escape(),                               // HTML-encode <, >, &, " etc.
+
+    body('password')
+      .trim()
+      .isLength({ min: 8, max: 100 })          // enforce password length
+      .withMessage('Password must be 8–100 chars')
+      // *don’t escape password*, since you’ll hash/compare it server-side
+  ],
+  async (req, res) => {
   try {
     /* Destroy the session stored in the server side */
     req.session.destroy((err) => {
