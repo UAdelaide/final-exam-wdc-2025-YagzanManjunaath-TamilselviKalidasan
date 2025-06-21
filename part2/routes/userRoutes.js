@@ -51,7 +51,10 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    /* If  user found, Populate the User information such as user_id and role in Request.session object */
+    /*
+      If  user found, Populate the User information such as user_id and role
+      in Request.session object
+    */
     const user = rows[0];
     req.session.user_id = user.userId;
     req.session.role = user.role;
