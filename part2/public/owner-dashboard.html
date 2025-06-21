@@ -137,7 +137,21 @@
         }
         const logout = async () => {
           try {
-            
+            const login_url = "/api/users/logout";
+            const requestBody = { username: username.value, password: password.value };
+
+            const login_response = await fetch(login_url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(requestBody),
+            });
+            if (!login_response.ok) {
+              throw new Error(`Response status: ${login_response.status}`);
+            }
+
+            const json = await login_response.json();
             window.location.replace('/index.html');
 
           } catch (err) {
