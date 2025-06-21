@@ -37,7 +37,18 @@ router.get('/me', (req, res) => {
 });
 
 // POST method to handle Login
-router.post('/login', async (req, res) => {
+router.post('/login',  body('username')
+      .trim()                                  // remove leading/trailing whitespace
+      .isLength({ min: 3, max: 30 })           // enforce a reasonable length
+      .withMessage('Username must be 3–30 chars')
+      .escape(),                               // HTML-encode <, >, &, " etc.
+
+    body('password')
+      .trim()
+      .isLength({ min: 8, max: 100 })          // enforce password length
+      .withMessage('Password must be 8–100 chars')
+      // *don’t escape password*, since you’ll hash/compare it server-side
+  ],async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -69,20 +80,7 @@ router.post('/login', async (req, res) => {
 });
 
 // POST method to handle Logout
-router.post('/logout',
-      body('username')
-      .trim()                                  // remove leading/trailing whitespace
-      .isLength({ min: 3, max: 30 })           // enforce a reasonable length
-      .withMessage('Username must be 3–30 chars')
-      .escape(),                               // HTML-encode <, >, &, " etc.
-
-    body('password')
-      .trim()
-      .isLength({ min: 8, max: 100 })          // enforce password length
-      .withMessage('Password must be 8–100 chars')
-      // *don’t escape password*, since you’ll hash/compare it server-side
-  ],
-  async (req, res) => {
+router.post('/logout',async (req, res) => {
   try {
     /* Destroy the session stored in the server side */
     req.session.destroy((err) => {
