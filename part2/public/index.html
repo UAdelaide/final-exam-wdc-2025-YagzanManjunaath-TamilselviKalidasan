@@ -111,7 +111,7 @@
             const json = await login_response.json();
             const role = json.user.role;
 
-            /* Based on role, navigate to  */
+            /* Based on role, navigate to corresponding dashboard */
             if (role === 'owner') {
               window.location.replace('/owner-dashboard.html');
             } else if (role === 'walker') {
@@ -119,7 +119,6 @@
             } else {
               throw new Error(`Invalid role: ${role}`);
             }
-
 
           } catch (err) {
             isLoginError.value = true;
