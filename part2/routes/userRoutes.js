@@ -67,6 +67,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
+  /* Destroy the session stored in the server side */
   req.session.destroy((err) => {
     if (err) {
       console.error(`ERROR : Error during logout - ${err}`);
