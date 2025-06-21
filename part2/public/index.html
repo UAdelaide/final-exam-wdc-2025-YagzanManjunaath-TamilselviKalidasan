@@ -167,10 +167,9 @@
 
           }
         }
-      }, mounted() {
-
-        this.fetchRandomDog();
-        this.fetchListOfRandomDog();
+      },
+      mounted() {
+        this.loadDogsFromDb();
       }
     }).mount('#app');
   </script>
