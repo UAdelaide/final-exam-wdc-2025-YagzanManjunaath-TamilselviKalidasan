@@ -130,13 +130,11 @@
         async checkIfUserLoggedIn() {
           const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-          console.log(isLoggedIn );
-          console.log(sessionId );
+          console.log(isLoggedIn);
 
-          if (isLoggedIn && sessionId) {
+
+          if (isLoggedIn) {
             const restore_session_url = "/api/users/me";
-
-
             const restore_session_response = await fetch(login_url, {
               method: "GET",
             });
