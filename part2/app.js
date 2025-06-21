@@ -23,6 +23,13 @@ app.use(session({
     secure: false
   }
 }));
+
+app.use('/users/*', (req, res, next) => {
+  if (req.session.user_id && req.session.isAuthenticated) {
+    return next();
+  }
+  res.status(403).send("ERROR:  NOT AUTHENTICATED");
+});
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
