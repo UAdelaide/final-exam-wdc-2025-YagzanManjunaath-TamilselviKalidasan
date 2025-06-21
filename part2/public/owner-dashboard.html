@@ -180,8 +180,8 @@
             if (!fetchDogsResponse.ok) {
               throw new Error(`Response status: ${fetchDogsResponse.status}`);
             }
-            /* Populate dogs in the Vue object */
-
+            /* Populate dogs in the Vue recative object */
+            this.userDogs = fetchDogsResponse.
           } catch (err) {
 
             console.log(`ERROR : Error Logging out of the Service ${err}`);
