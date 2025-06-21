@@ -185,7 +185,7 @@
             const dogsAsJson = await fetchDogsResponse.json();
             console.log(dogsAsJson);
 
-            this.userDogs = dogsAsJson;
+            userDogs.value = dogsAsJson;
           } catch (err) {
             console.log(`ERROR : Error Logging out of the Service ${err}`);
           }
