@@ -62,9 +62,9 @@
       <h1> Login </h1>
       <form action="" class="login-form">
         <label for="username">Username :</label>
-        <input type="text" id="username" placeholder="Enter Username.." v-model="username">
+        <input type="text" id="username" @input="isLoginError=false;" placeholder="Enter Username.." v-model="username">
         <label for="password">Password :</label>
-        <input type="password" id="password" placeholder="Enter Password.." v-model="password">
+        <input type="password" id="password" @input="isLoginError=false;"  placeholder="Enter Password.." v-model="password">
 
         <button type="button" class="login-btn" @click="login">Login</button>
         <p v-if="isLoginError"> Login Failed. Kindly try again </p>
