@@ -135,7 +135,7 @@
 
           if (isLoggedIn) {
             const restore_session_url = "/api/users/me";
-            const restore_session_response = await fetch(login_url, {
+            const restore_session_response = await fetch(restore_session_url, {
               method: "GET",
             });
             if (!restore_session_response.ok) {
