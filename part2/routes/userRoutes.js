@@ -124,11 +124,13 @@ router.get('/dogs', async (req, res) => {
     const [rows] = await db.query(`
       select Dogs.dog_id,Dogs.name from Dogs where Dogs.owner_id = ?;
     `, [user_id]);
-    let dogsList = [];
     /* If no dogs found, Respond with empty array object */
+    let dogsList = [];
+
     if (rows.length !== 0) {
       dogsList = rows;
     }
+    /* Respond as simple json arrray list */
     return res.status(200).json(dogsList);
 
   } catch (error) {
