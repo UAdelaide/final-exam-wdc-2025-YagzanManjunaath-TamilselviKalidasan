@@ -89,7 +89,7 @@
           try {
 
             const login_url = "http://localhost:8080/api/users/login";
-            const requestBody = { username: username, password: password };
+            const requestBody = { username: username.value, password: password.value };
 
             const login_response = await fetch(login_url, {
               method: "POST",
