@@ -133,13 +133,14 @@
             const restore_session_url = "/api/users/me";
 
 
-            const login_response = await fetch(login_url, {
-              method: "GET",});
-            if (!login_response.ok) {
-              throw new Error(`Response status: ${login_response.status}`);
+            const restore_session_response = await fetch(login_url, {
+              method: "GET",
+            });
+            if (!restore_session_response.ok) {
+              throw new Error(`Response status: ${restore_session_response.status}`);
             }
 
-            const json = await login_response.json();
+            const json = await restore_session_response.json();
             const role = json.user.role;
 
             if (role === 'owner') {
