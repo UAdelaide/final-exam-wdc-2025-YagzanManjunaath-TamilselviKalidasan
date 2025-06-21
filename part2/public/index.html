@@ -78,7 +78,7 @@
     </div>
 
 
-    <div v-if="userDogs.value.length>0">
+    <div v-if="dogsList.value.length>0">
       <h1 class="mb-4 text-primary">All Registered Dogs</h1>
       <table class="table table-bordered">
         <thead>
@@ -90,7 +90,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(dog, i) in userDogs" :key="i">
+          <tr v-for="(dog, i) in dogsList" :key="i">
             <td>{{ dog.dog_name }}</td>
             <td>{{ dog.size }}</td>
             <td>{{ dog.owner_username }}</td>
