@@ -150,7 +150,7 @@
             if (!logout_response.ok) {
               throw new Error(`Response status: ${logout_response.status}`);
             }
-            /* Make an API call to Logout endpoint */
+            /* Reroute to Login page if logout successful */
             window.location.replace('/index.html');
 
           } catch (err) {
