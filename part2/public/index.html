@@ -89,7 +89,7 @@
           try {
             const data = await fetch('localhost:8080/api/users/login').then((response) => response.json());
 
-            const url = "https://example.org/products.json";
+            const login_url = "http://localhost:8080/api/users/login";
             try {
               const response = await fetch(url);
               if (!response.ok) {
