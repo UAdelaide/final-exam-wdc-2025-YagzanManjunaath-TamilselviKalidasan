@@ -95,7 +95,7 @@
             const login_url = "/api/users/login";
             const requestBody = { username: username.value, password: password.value };
 
-            /* Make an API call to Login endpoint */
+            /* Make an API call to Login endpoint with Header and body populated */
             const login_response = await fetch(login_url, {
               method: "POST",
               headers: {
@@ -107,6 +107,7 @@
               throw new Error(`Response status: ${login_response.status}`);
             }
 
+            /* Make an API call to Login endpoint with Header and body populated */
             const json = await login_response.json();
             const role = json.user.role;
 
