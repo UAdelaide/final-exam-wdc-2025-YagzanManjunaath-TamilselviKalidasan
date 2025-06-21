@@ -127,7 +127,10 @@
         },
         async checkIfUserLoggedIn(){
            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-           const sessionId = localStorage.getItem('isLoggedIn') === 'true'
+           const sessionId = localStorage.getItem('connect.sid') ;
+           if(isLoggedIn && sessionId){
+            
+           }
 
 
 
