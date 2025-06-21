@@ -8,8 +8,9 @@ router.get('/dogs', async function (req, res, next) {
 
         /*
             Fetch Dogs from database using query from queries.js
-            const fetch_dogs_and_owner_name =
-                `
+            */
+        const fetch_dogs_and_owner_name =
+            `
                 SELECT
                     d.name as dog_name,
                     d.size as size,
@@ -18,11 +19,8 @@ router.get('/dogs', async function (req, res, next) {
                     Dogs d
                     inner join Users u on d.owner_id = u.user_id
                 `;
-        */
-       const [result] = await db.query(`
-      INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location)
-      VALUES (?, ?, ?, ?)
-    `, [dog_id, requested_time, duration_minutes, location]);
+
+        const [result] = await db.query(, [dog_id, requested_time, duration_minutes, location]);
         let dogs_with_owner_name_result = await query(fetch_dogs_and_owner_name);
         /*
             If no dogs are in the database , return 200 wth empty array
