@@ -28,6 +28,7 @@
     <div class="login-form">
       <form action="">
         <label for="username"></label>
+        <input type="text" placeholder=""
       </form>
     </div>
 
@@ -48,17 +49,7 @@
           try {
             const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
 
-            let dogOfDay = {};
-            let urlSplit = data.message.split('/')
-            let fileName = urlSplit[urlSplit.length - 1];
-            let breedName = urlSplit[urlSplit.length - 2];
 
-            dogOfDay.name = fileName.split('.')[0];
-            dogOfDay.breed = breedName;
-            dogOfDay.image = data.message;
-
-
-            this.dogOfDay = dogOfDay;
           } catch (err) {
             console.log("ERROR : Error Logging in to the Service");
           }
