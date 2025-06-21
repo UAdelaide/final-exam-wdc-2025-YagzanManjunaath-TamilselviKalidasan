@@ -13,14 +13,14 @@ const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: "",
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 86400000, // 1 day
+    maxAge: 86400000,
     httpOnly: true,
-    sameSite: 'lax', // or 'strict' / 'none' with CORS setup
-    secure: false     // set true in production if using HTTPS
+    sameSite: 'lax',
+    secure: false
   }
 }));
 app.use('/api/walks', walkRoutes);
