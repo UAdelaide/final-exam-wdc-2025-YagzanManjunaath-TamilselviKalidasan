@@ -182,9 +182,8 @@
             }
             /* Populate dogs in the Vue recative object */
             const dogsAsJson = await fetchDogsResponse.json();
-            this.userDogs = dogsAsJson.
+            this.userDogs = dogsAsJson;
           } catch (err) {
-
             console.log(`ERROR : Error Logging out of the Service ${err}`);
           }
 
