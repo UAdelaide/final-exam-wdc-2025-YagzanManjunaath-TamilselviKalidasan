@@ -29,7 +29,7 @@
   <div id="app" class="container py-4">
     <div class="header-row">
       <h1 class="mb-4 text-primary">Owner Dashboard</h1>
-      <button type="submit" class="logout-btn">Logout</button>
+      <button type="submit" class="logout-btn" @click>Logout</button>
     </div>
 
     <!-- Walk request form -->
@@ -157,7 +157,8 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          logout
         };
       }
     }).mount('#app');
