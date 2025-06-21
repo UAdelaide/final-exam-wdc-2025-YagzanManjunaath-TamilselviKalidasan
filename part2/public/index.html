@@ -28,7 +28,8 @@
     <div class="login-form">
       <form action="">
         <label for="username"></label>
-        <input type="text" placeholder="Enter Username.." v-model="username"
+        <input type="text" placeholder="Enter Username.." v-model="username">
+        <input type="text" placeholder="Enter Username.." v-model="username">
       </form>
     </div>
 
@@ -42,7 +43,8 @@
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
-          username
+          username: "",
+          password: ""
         };
       },
       methods: {
