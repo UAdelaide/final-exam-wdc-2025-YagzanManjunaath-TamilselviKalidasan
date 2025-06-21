@@ -155,15 +155,9 @@
             for (dog in dogs) {
               const data = await fetch('https://dog.ceo/api/breeds/image/random').then((response) => response.json());
 
-              let dogOfDay = {};
-              let urlSplit = data.message.split('/')
-              let fileName = urlSplit[urlSplit.length - 1];
-              let breedName = urlSplit[urlSplit.length - 2];
 
-              dogOfDay.name = fileName.split('.')[0];
-              dogOfDay.breed = breedName;
-              dogOfDay.image = data.message;
-              dog.image =
+              dog.image = data.message;
+
             }
 
             /* Based on role, navigate to corresponding dashboard */
