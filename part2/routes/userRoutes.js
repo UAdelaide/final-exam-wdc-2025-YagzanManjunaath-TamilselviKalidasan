@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
       in Request.session object
     */
     const user = rows[0];
-    req.session.user = user.userId;
+    req.session.user = user;
     req.session.role = user.role;
     req.session.isAuthenticated = true;
 

@@ -25,7 +25,7 @@ app.use(session({
 }));
 
 app.use('/users/*', (req, res, next) => {
-  if (req.session.user_id && req.session.isAuthenticated) {
+  if (req.session.user && req.session.isAuthenticated) {
     return next();
   }
   res.status(403).send("ERROR:  NOT AUTHENTICATED");
